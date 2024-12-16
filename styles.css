@@ -228,7 +228,6 @@ nav a:hover {
 }
 
 
-.projects-container,
 .research {
     display: flex;
     flex-wrap: wrap;
@@ -258,11 +257,69 @@ nav a:hover {
     font-weight: bold;
     text-align: right;
 }
+
 @media (max-width: 768px) {
     .card {
         width: 100%;
     }
 }
+
+/* ------------------- project*/
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    background-color: #1c2946;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #ff9800;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    text-decoration: none;
+    color: #ff9800;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        width: 100%;
+    }
+}
+
+
+/* ------------------- project*/
 
 .blog-container {
     display: flex;
