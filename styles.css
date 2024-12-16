@@ -258,6 +258,11 @@ nav a:hover {
     font-weight: bold;
     text-align: right;
 }
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
 
 .blog-container {
     display: flex;
