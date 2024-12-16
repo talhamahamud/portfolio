@@ -264,7 +264,7 @@ nav a:hover {
     gap: 20px;
     overflow-x: scroll;
     padding: 10px;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .blog-card {
