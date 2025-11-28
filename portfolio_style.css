@@ -1,0 +1,273 @@
+:root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #222;
+    --link-color: #222;
+    --visited-color: #222;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+    --bar-color: #222;
+    --bar-background: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #222;
+        --heading-color: #ddd;
+        --text-color: #ddd;
+        --link-color: #ddd;
+        --visited-color: #ddd;
+        --code-background-color: #000;
+        --code-color: #ddd;
+        --blockquote-color: #ccc;
+        --bar-color: #ddd;
+        --bar-background: #444;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 900px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+}
+
+h2 {
+    font-size: 1.4em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--bar-background);
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+}
+
+a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav a {
+    margin-right: 10px;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.title:hover {
+    text-decoration: none;
+}
+
+.title h1 {
+    font-size: 1.5em;
+}
+
+/* Education & Experience */
+.timeline-item {
+    margin-bottom: 1.5em;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3em;
+}
+
+.timeline-title {
+    font-weight: bold;
+}
+
+.timeline-date {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.timeline-subtitle {
+    color: #666;
+    margin-bottom: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+    .timeline-subtitle {
+        color: #aaa;
+    }
+}
+
+.timeline-description {
+    margin-left: 1em;
+}
+
+/* Skills */
+.skill-item {
+    margin-bottom: 1em;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3em;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 20px;
+    background-color: var(--bar-background);
+    border: 1px solid var(--bar-color);
+}
+
+.skill-fill {
+    height: 100%;
+    background-color: var(--bar-color);
+    transition: width 0.3s ease;
+}
+
+/* Projects */
+.project-item {
+    margin-bottom: 2em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--bar-background);
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
+}
+
+.project-tech {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+    .project-tech {
+        color: #aaa;
+    }
+}
+
+.project-links {
+    margin-top: 0.5em;
+}
+
+.project-links a {
+    margin-right: 1em;
+}
+
+ul {
+    margin-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.3em;
+}
+
+/* Download CV Button */
+.cv-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 1.5em 0;
+    background-color: var(--bar-color);
+    color: var(--background-color);
+    border: 2px solid var(--bar-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: var(--background-color);
+    color: var(--bar-color);
+    text-decoration: none;
+}
+
+/* Section Navigation */
+.section-nav {
+    margin: 2em 0;
+    padding: 1em 0;
+    border-top: 1px solid var(--bar-background);
+    border-bottom: 1px solid var(--bar-background);
+}
+
+@media (min-width: 1024px) {
+    .section-nav {
+        position: fixed;
+        right: 20px;
+        top: 120px;
+        margin: 0;
+        padding: 1em;
+        border: 1px solid var(--bar-background);
+        border-radius: 3px;
+        background-color: var(--background-color);
+        max-width: 150px;
+    }
+}
+
+.section-nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--bar-color);
+    font-size: 0.85em;
+    text-align: center;
+}
+
+@media (max-width: 1023px) {
+    .section-nav a {
+        display: inline-block;
+        margin-right: 10px;
+    }
+}
+
+.section-nav a:hover {
+    background-color: var(--bar-color);
+    color: var(--background-color);
+    text-decoration: none;
+}
+
+.section-nav a:last-child {
+    margin-bottom: 0;
+}

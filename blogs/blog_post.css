@@ -1,0 +1,118 @@
+:root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #222;
+    --link-color: #222;
+    --visited-color: #222;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #222;
+        --heading-color: #ddd;
+        --text-color: #ddd;
+        --link-color: #ddd;
+        --visited-color: #ddd;
+        --code-background-color: #000;
+        --code-color: #ddd;
+        --blockquote-color: #ccc;
+    }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+}
+
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.4em; margin-top: 1.5em; }
+
+a { color: var(--link-color); cursor: pointer; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+nav a { margin-right: 10px; }
+
+textarea, input { font-size: 16px; }
+textarea { width: 100%; font-size: 16px; }
+
+content { line-height: 1.6; }
+table { width: 100%; }
+img { max-width: 100%; }
+
+code {
+    padding: 2px 5px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+}
+
+pre code {
+    color: var(--code-color);
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+}
+
+blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+footer { padding: 25px 0; text-align: center; }
+
+.title:hover { text-decoration: none; }
+.title h1 { font-size: 1.5em; }
+
+.post-meta {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 2em;
+}
+
+.post-content { margin-top: 2em; }
+.post-content p { margin-bottom: 1.2em; }
+
+.back-link {
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 1px solid #ddd;
+}
+
+@media (prefers-color-scheme: dark) {
+    .back-link { border-top-color: #444; }
+}
+
+.highlight, .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+}
