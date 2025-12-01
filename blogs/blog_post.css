@@ -116,3 +116,18 @@ footer { padding: 25px 0; text-align: center; }
     margin-block-end: 1em;
     overflow-x: auto;
 }
+
+/* -------------------------------------------- */
+pre {
+    border-radius: 5px;
+    padding: 5px;
+    overflow-x: auto;
+    background: #f6f8fa; /* GitHub light */
+}
+
+/* Make code slightly larger + cleaner */
+pre code {
+    font-size: 15px;
+    line-height: 1.6;
+    border-radius: 0;
+}
