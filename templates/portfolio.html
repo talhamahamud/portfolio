@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="important\android-chrome-192x192.png">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}">
     <title>Portfolio - Talha Mahamud</title>
-    <link rel="stylesheet" href="portfolio_style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio_style.css') }}">
 </head>
+
 <body>
     <header>
-        <a class="title" href="/">
+        <a class="title" href="{{ url_for('index') }}">
             <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
         </a>
         <p>TO THE INFINITY AND BEYOND</p>
         <nav>
-            <a href="/portfolio/index.html">Home</a>
-            <a href="/portfolio/portfolio.html">Portfolio</a>
-            <a href="/portfolio/bear_blog_blog.html">Blog</a>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('portfolio') }}">Portfolio</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
             <!-- <a href="/about/">About</a> -->
         </nav>
     </header>
 
     <main>
         <h1>Portfolio</h1>
-        
-        <a href="Talha_Mahamud_s_CV.pdf" class="cv-button" download>Download CV</a>
+
+        <a href="{{ url_for('static', filename='important/Talha_Mahamud_s_CV.pdf') }}" class="cv-button"
+            download="Talha_Mahamud_CV.pdf">Download CV</a>
 
         <!-- Section Navigation -->
         <div class="section-nav">
@@ -36,7 +39,7 @@
 
         <!-- Education Section -->
         <h2 id="education">Education</h2>
-        
+
         <div class="timeline-item">
             <div class="timeline-header">
                 <span class="timeline-title">Bachelor of Science (Physics)</span>
@@ -148,7 +151,8 @@
         <div class="project-item">
             <div class="project-title">ExoQuest</div>
             <div class="project-tech">Physics, Math, Programming</div>
-            <p>ExoQuest is an engaging educational app that introduces students to the fascinating world of exoplanets through interactive games inspired by NASA's discoveries.</p>
+            <p>ExoQuest is an engaging educational app that introduces students to the fascinating world of exoplanets
+                through interactive games inspired by NASA's discoveries.</p>
             <div class="project-links">
                 <a href="https://www.youtube.com/watch?v=KstHalciXNw" target="_blank">Watch</a>
                 <!-- <a href="#">Live Demo</a> -->
@@ -158,7 +162,8 @@
         <div class="project-item">
             <div class="project-title">Machine Learning</div>
             <div class="project-tech">Python, Click</div>
-            <p>Developing machine learning projects focused on solving complex problems in physics, data analysis, and predictive modeling with innovative algorithms.</p>
+            <p>Developing machine learning projects focused on solving complex problems in physics, data analysis, and
+                predictive modeling with innovative algorithms.</p>
             <div class="project-links">
                 <a href="#">GitHub</a>
             </div>
@@ -226,6 +231,10 @@
 
     <footer>
         <p>𝚿 Talha Mahamud 𝚿</p>
+        <p><a href="https://www.youtube.com/@talhamahamud3176" target="_blank">YouTube</a> | <a
+                href="https://www.linkedin.com/in/talha-mahamud-bb8534208" target="_blank">LinkedIn </a>| <a
+                href="https://github.com/TalhaMahamud" target="_blank">GitHub</a></p>
     </footer>
 </body>
+
 </html>

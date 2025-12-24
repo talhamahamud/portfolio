@@ -44,7 +44,12 @@ body {
     color: var(--text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-main);
     color: var(--heading-color);
 }
@@ -112,4 +117,14 @@ ul.blog-posts li::before {
 
 ul.blog-posts li a:visited {
     color: var(--visited-color);
+}
+
+ul.blog-posts li a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+ul.blog-posts li a:hover {
+    text-decoration-thickness: 2px;
 }

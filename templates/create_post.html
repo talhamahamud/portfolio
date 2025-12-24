@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}">
+    <title>{{ 'Edit Post' if post else 'New Post' }} - Talha Mahamud</title>
+    
+    <!-- Highlight.js for Code Blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- KaTeX for LaTeX Formulas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Marked.js for Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
+    
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --bg-color: #ffffff;
+            --text-color: #222;
+            --border-color: #eaeaea;
+            --toolbar-bg: #f9f9f9;
+            --editor-bg: #fff;
+            --preview-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #e0e0e0;
+                --border-color: #333;
+                --toolbar-bg: #252525;
+                --editor-bg: #1e1e1e;
+                --preview-bg: #1a1a1a;
+            }
+        }
+
+        /* RESET & BASE */
+        html, body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent global scroll */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            max-width: 100% !important; /* Override post.css */
+            width: 100%;
+            margin: 0 !important;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 10px 0;
+            flex-shrink: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 { margin: 0; font-size: 1.5rem; }
+
+        /* MAIN LAYOUT */
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%; /* Changed from 1600px to 100% for full width */
+            margin: 0;
+            padding: 10px 20px 20px 20px;
+            box-sizing: border-box;
+            overflow: hidden; /* Contain children */
+            height: 100%; /* Force height */
+        }
+
+        #postForm {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Title Input */
+        .title-input-container {
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        input[type="text"].modern-title {
+            width: 100%;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            background: transparent;
+            color: var(--text-color);
+            outline: none;
+            padding: 5px 0;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"].modern-title:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* EDITOR AREA */
+        .editor-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden; /* Key for internal scrolling */
+            min-height: 0; /* Flexbox fix */
+        }
+
+        /* Toolbar */
+        .toolbar {
+            background: var(--toolbar-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 15px;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: 2px;
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .toolbar-group:last-child { border-right: none; }
+
+        .tool-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+            min-width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tool-btn:hover { background: rgba(0,0,0,0.05); color: var(--primary-color); }
+        @media (prefers-color-scheme: dark) { .tool-btn:hover { background: rgba(255,255,255,0.1); } }
+
+        /* SPLIT VIEW */
+        .split-view {
+            display: flex;
+            flex-grow: 1;
+            height: 100%; /* Fill wrapper */
+            overflow: hidden; /* Individual panes scroll */
+        }
+
+        .editor-pane, .preview-pane {
+            flex: 1;
+            height: 100%;
+            overflow-y: auto; /* Independent Scrolling */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .editor-pane {
+            background: var(--editor-bg);
+            border-right: 1px solid var(--border-color);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            resize: none;
+            outline: none;
+            border: none;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .preview-pane {
+            background: var(--preview-bg);
+            scroll-behavior: smooth; /* Nice for sync */
+        }
+
+        /* Preview Content Styling */
+        .preview-pane img { max-width: 100%; border-radius: 4px; }
+        .preview-pane blockquote { border-left: 4px solid var(--border-color); padding-left: 15px; color: #666; margin-left: 0; }
+        .preview-pane pre { background: rgba(0,0,0,0.05); padding: 10px; border-radius: 5px; overflow-x: auto; }
+        @media (prefers-color-scheme: dark) { .preview-pane pre { background: rgba(255,255,255,0.05); } }
+
+        /* CONTROLS */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            flex-shrink: 0;
+        }
+
+        .publish-btn {
+            background: var(--text-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .publish-btn:hover { opacity: 0.9; }
+
+        .status-msg { font-size: 0.85rem; color: #888; margin-right: 15px; }
+
+        /* SCROLLBARS */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        @media (prefers-color-scheme: dark) { ::-webkit-scrollbar-thumb { background: #444; } }
+
+        /* DIALOG */
+        #inputDialog {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: var(--bg-color); padding: 20px; border: 1px solid var(--border-color);
+            border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 2000; min-width: 300px;
+        }
+        #inputDialog h3 { margin-top: 0; }
+        #inputDialog input { 
+            width: 100%; margin: 10px 0; padding: 8px; background: var(--editor-bg);
+            border: 1px solid var(--border-color); color: var(--text-color);
+        }
+        #inputDialog .dialog-btns { display: flex; justify-content: flex-end; gap: 10px; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
+    </style>
+</head>
+<body data-is-editing="{{ 'true' if post else 'false' }}">
+    <header>
+        <a class="title" href="{{ url_for('index') }}" style="text-decoration: none; color: inherit;">
+            <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+        </a>
+    </header>
+
+    <div class="main-container">
+        <form id="postForm" method="post" action="{{ url_for('edit', id=post['id']) if post else url_for('create') }}">
+            
+            <div class="title-input-container">
+                <input type="text" name="title" class="modern-title" placeholder="Post Title..." required value="{{ post['title'] if post else '' }}" autocomplete="off">
+            </div>
+
+            <div class="editor-wrapper">
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar-group">
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('**', '**')" title="Bold"><i class="fas fa-bold"></i></button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('*', '*')" title="Italic"><i class="fas fa-italic"></i></button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('<u>', '</u>')" title="Underline"><i class="fas fa-underline"></i></button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('~~', '~~')" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('# ')" title="Heading 1">H1</button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('## ')" title="Heading 2">H2</button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('### ')" title="Heading 3">H3</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('> ')" title="Quote"><i class="fas fa-quote-right"></i></button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('`', '`')" title="Inline Code"><i class="fas fa-code"></i></button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('\n```\n', '\n```\n')" title="Code Block"><i class="fas fa-file-code"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('1. ')" title="Ordered List"><i class="fas fa-list-ol"></i></button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('- ')" title="Unordered List"><i class="fas fa-list-ul"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button type="button" class="tool-btn" onclick="openLinkDialog()" title="Link"><i class="fas fa-link"></i></button>
+                        <button type="button" class="tool-btn" onclick="openImageDialog()" title="Image"><i class="fas fa-image"></i></button>
+                    </div>
+                     <div class="toolbar-group">
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('$', '$')" title="Inline Math">$</button>
+                        <button type="button" class="tool-btn" onclick="insertMarkdown('\n$$', '$$\n')" title="Block Math">$$</button>
+                    </div>
+                </div>
+
+                <!-- Split View -->
+                <div class="split-view">
+                    <textarea id="markdown-input" class="editor-pane" name="content" placeholder="Write in Markdown...">{{ post['content'] if post else '' }}</textarea>
+                    <div id="preview-output" class="preview-pane"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <a href="{{ url_for('blog') }}" style="color: var(--text-color); text-decoration: none;">← Cancel</a>
+                <div>
+                    <span id="statusMsg" class="status-msg"></span>
+                    <button type="submit" class="publish-btn">{{ 'Update Post' if post else 'Publish Post' }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modals -->
+    <div class="overlay" id="overlay" onclick="closeDialog()"></div>
+    <div id="inputDialog">
+        <h3 id="dialogTitle">Insert</h3>
+        <input type="text" id="dialogInput1" placeholder="URL">
+        <input type="text" id="dialogInput2" placeholder="Text/Description">
+        
+        <div id="imageUploadSection" style="display:none; margin-bottom: 10px;">
+             <p style="font-size: 0.9rem; margin-bottom: 5px;">Or upload local file:</p>
+             <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <div class="dialog-btns">
+            <button class="tool-btn" onclick="closeDialog()">Cancel</button>
+            <button class="tool-btn" style="background:var(--primary-color); color:#fff;" onclick="submitDialog()">Insert</button>
+        </div>
+    </div>
+
+    <script>
+        // Configure Marked.js
+        marked.setOptions({
+            breaks: true,
+            highlight: function(code, lang) {
+                const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                return hljs.highlight(code, { language }).value;
+            }
+        });
+
+        const markdownInput = document.getElementById('markdown-input');
+        const previewOutput = document.getElementById('preview-output');
+        const statusMsg = document.getElementById('statusMsg');
+        const overlay = document.getElementById('overlay');
+        const dialog = document.getElementById('inputDialog');
+        const dialogTitle = document.getElementById('dialogTitle');
+        const input1 = document.getElementById('dialogInput1');
+        const input2 = document.getElementById('dialogInput2');
+        const fileInput = document.getElementById('fileInput');
+        
+        let currentDialogMode = ''; // 'link' or 'image'
+
+        // Render Function
+        function render() {
+            const markdownText = markdownInput.value;
+            const html = marked.parse(markdownText);
+            previewOutput.innerHTML = html;
+            
+            // Render Math (KaTeX)
+            renderMathInElement(previewOutput, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });
+        }
+
+        // Live Preview Event
+        markdownInput.addEventListener('input', () => {
+             render();
+             debounceSave();
+        });
+
+        // Initial Render
+        render();
+        
+        // --- DOUBLE-CLICK SYNC: Preview -> Editor ---
+        previewOutput.addEventListener('dblclick', (e) => {
+            e.preventDefault();
+            
+            // Get the clicked element
+            let target = e.target;
+            
+            // Find the nearest block-level element
+            while (target && target !== previewOutput) {
+                if (['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'LI', 'BLOCKQUOTE', 'PRE', 'CODE'].includes(target.tagName)) {
+                    break;
+                }
+                target = target.parentElement;
+            }
+            
+            if (!target || target === previewOutput) return;
+            
+            // Get the text content of the element
+            let searchText = target.innerText.trim();
+            
+            // For better matching, try different strategies
+            let index = -1;
+            
+            // Strategy 1: Try exact match first
+            index = markdownInput.value.indexOf(searchText);
+            
+            // Strategy 2: If not found, try first 50 characters
+            if (index === -1 && searchText.length > 50) {
+                const snippet = searchText.substring(0, 50);
+                index = markdownInput.value.indexOf(snippet);
+            }
+            
+            // Strategy 3: Try first 20 characters
+            if (index === -1 && searchText.length > 20) {
+                const snippet = searchText.substring(0, 20);
+                index = markdownInput.value.indexOf(snippet);
+            }
+            
+            // Strategy 4: Try first line
+            if (index === -1) {
+                const firstLine = searchText.split('\n')[0].trim();
+                if (firstLine.length > 5) {
+                    index = markdownInput.value.indexOf(firstLine);
+                }
+            }
+            
+            if (index !== -1) {
+                // Focus and select the found text
+                markdownInput.focus();
+                markdownInput.setSelectionRange(index, index + Math.min(searchText.length, 100));
+                
+                // Calculate scroll position based on character position
+                const beforeText = markdownInput.value.substring(0, index);
+                const linesBefore = beforeText.split('\n').length;
+                const lineHeight = parseInt(window.getComputedStyle(markdownInput).lineHeight) || 24;
+                
+                // Scroll to center the selection
+                const targetScrollTop = (linesBefore - 1) * lineHeight - (markdownInput.clientHeight / 2);
+                markdownInput.scrollTop = Math.max(0, targetScrollTop);
+            }
+        });
+
+        // --- SYNCHRONIZED SCROLLING: Editor -> Preview ---
+        markdownInput.addEventListener('scroll', () => {
+            // Calculate scroll percentage in editor
+            const scrollPercentage = markdownInput.scrollTop / (markdownInput.scrollHeight - markdownInput.clientHeight);
+            
+            // Apply same percentage to preview
+            const targetScrollTop = scrollPercentage * (previewOutput.scrollHeight - previewOutput.clientHeight);
+            previewOutput.scrollTop = targetScrollTop;
+        });
+
+        // --- IMPROVED INSERTION LOGIC (PREVENTS SCROLL JUMP) ---
+        window.insertMarkdown = (prefix, suffix = '') => {
+            const start = markdownInput.selectionStart;
+            const end = markdownInput.selectionEnd;
+            const text = markdownInput.value;
+            const selection = text.substring(start, end);
+            
+            const replacement = prefix + selection + suffix;
+            
+            // Use setRangeText to preserve history and unwanted scroll jumps
+            markdownInput.setRangeText(replacement, start, end, 'select');
+            
+            // Manually update selection to be inside the formatting for better UX if empty selection
+            if (start === end) {
+                 markdownInput.selectionStart = start + prefix.length;
+                 markdownInput.selectionEnd = markdownInput.selectionStart;
+            }
+            
+            markdownInput.focus(); // Ensure focus returns to editor
+            
+            // Trigger input event manually for render
+            markdownInput.dispatchEvent(new Event('input'));
+        };
+
+        // Dialog Logic
+        window.openLinkDialog = () => {
+            currentDialogMode = 'link';
+            dialogTitle.innerText = 'Insert Link';
+            input1.placeholder = 'URL (https://...)';
+            input2.placeholder = 'Link Text';
+            input1.value = '';
+            // Pre-fill text input with selection
+            input2.value = markdownInput.value.substring(markdownInput.selectionStart, markdownInput.selectionEnd);
+            document.getElementById('imageUploadSection').style.display = 'none';
+            showDialog();
+        };
+
+        window.openImageDialog = () => {
+            currentDialogMode = 'image';
+            dialogTitle.innerText = 'Insert Image';
+            input1.placeholder = 'Image URL';
+            input2.placeholder = 'Alt Text';
+            input1.value = '';
+            input2.value = markdownInput.value.substring(markdownInput.selectionStart, markdownInput.selectionEnd);
+            document.getElementById('imageUploadSection').style.display = 'block';
+            showDialog();
+        };
+
+        function showDialog() {
+            overlay.style.display = 'block';
+            dialog.style.display = 'block';
+            input1.focus();
+        }
+
+        window.closeDialog = () => {
+            overlay.style.display = 'none';
+            dialog.style.display = 'none';
+        };
+
+        window.submitDialog = () => {
+             const val1 = input1.value; // URL
+             const val2 = input2.value; // Text/Alt
+
+             if (currentDialogMode === 'link') {
+                 // [text](url)
+                 const text = val2 || 'link';
+                 const url = val1 || '#';
+                 replaceSelection(`[${text}](${url})`);
+             } else if (currentDialogMode === 'image') {
+                 // ![alt](url)
+                 const alt = val2 || 'image';
+                 const url = val1;
+                 if (url) {
+                    replaceSelection(`![${alt}](${url})`);
+                 }
+             }
+             closeDialog();
+        };
+        
+        function replaceSelection(replacement) {
+             const start = markdownInput.selectionStart;
+             const end = markdownInput.selectionEnd;
+             markdownInput.setRangeText(replacement, start, end, 'end');
+             markdownInput.focus();
+             markdownInput.dispatchEvent(new Event('input'));
+        }
+
+        // Image Upload Logic
+        fileInput.onchange = () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                statusMsg.innerText = 'Uploading...';
+                
+                fetch('/upload_image', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.url) {
+                         input1.value = data.url; 
+                         statusMsg.innerText = 'Upload complete';
+                    } else {
+                        alert('Upload failed');
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('Error uploading');
+                });
+            }
+        };
+
+        // Auto Save Logic (Debounced)
+        const isEditing = document.body.dataset.isEditing === 'true';
+        let timeout;
+        
+        const autoSave = () => {
+            if (!isEditing) {
+                const title = document.querySelector('.modern-title').value;
+                const content = markdownInput.value;
+                localStorage.setItem('post_draft_title', title);
+                localStorage.setItem('post_draft_content', content);
+                statusMsg.innerText = 'Draft saved locally';
+            }
+        };
+        
+        const debounceSave = () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(autoSave, 2000);
+        };
+
+        // Restore Draft
+        window.onload = () => {
+             if (!isEditing) {
+                const savedTitle = localStorage.getItem('post_draft_title');
+                const savedContent = localStorage.getItem('post_draft_content');
+                if (savedTitle || savedContent) {
+                    // Optional: could confirm() here, but silent load might be nicer or stick to confirm
+                    if (confirm('Restore saved draft?')) {
+                        if (savedTitle) document.querySelector('.modern-title').value = savedTitle;
+                        if (savedContent) { 
+                            markdownInput.value = savedContent;
+                            render();
+                        }
+                    } else {
+                         localStorage.removeItem('post_draft_title');
+                         localStorage.removeItem('post_draft_content');
+                    }
+                }
+             }
+        };
+        
+        document.getElementById('postForm').onsubmit = () => {
+             localStorage.removeItem('post_draft_title');
+             localStorage.removeItem('post_draft_content');
+        };
+
+    </script>
+</body>
+</html>

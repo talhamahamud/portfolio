@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}">
+    <title>Talha Mahamud</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Removed base tag to avoid conflict with Flask routing -->
+</head>
+
+<body>
+    <header>
+        <a class="title" href="{{ url_for('index') }}">
+            <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+        </a>
+        <p>TO THE INFINITY AND BEYOND</p>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('portfolio') }}">Portfolio</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <!-- <a href="/about/">About</a> -->
+        </nav>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h1>Hello, I’m Talha Mahamud</h1>
+            <p> — a physics student, machine learning enthusiast, and aspiring researcher with a deep passion for
+                understanding the universe at its most fundamental level.</p>
+
+            <p>I dedicate my time to exploring theoretical physics, solving complex mathematical problems, developing
+                machine learning projects, and creating educational tools that make science accessible and engaging for
+                everyone. My goal is to simplify complex concepts and inspire curiosity in learners from all
+                backgrounds.</p>
+
+            <p>I believe that every phenomenon in nature has an explanation, and I am committed to discovering these
+                truths through my own unique approach, combining curiosity, rigorous study, and creativity. Beyond
+                academics, I strive to contribute meaningfully to research and build tools that bridge the gap between
+                advanced science and public understanding.</p>
+
+        </div>
+
+        <h2>My most recent posts</h2>
+        <ul class="blog-posts">
+            {% for post in posts %}
+            <li><a href="{{ url_for('post', post_id=post['id']) }}">{{ post['title'] }}</a></li>
+            {% else %}
+            <li>No posts yet.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Example of static link if needed -->
+        <!-- <ul class="blog-posts">
+            <li><a href="#">Why I Started Writing (Static)</a></li>
+        </ul> -->
+    </main>
+
+    <footer>
+        <p>𝚿 Talha Mahamud 𝚿</p>
+        <p><a href="https://www.youtube.com/@talhamahamud3176" target="_blank">YouTube</a> | <a
+                href="https://www.linkedin.com/in/talha-mahamud-bb8534208" target="_blank">LinkedIn </a>| <a
+                href="https://github.com/TalhaMahamud" target="_blank">GitHub</a></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}">
+    <title>Blog - Talha Mahamud</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_style.css') }}">
+</head>
+
+<body>
+    <header>
+        <a class="title" href="{{ url_for('index') }}">
+            <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+        </a>
+        <p>TO THE INFINITY AND BEYOND</p>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('portfolio') }}">Portfolio</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <!-- <a href="/about/">About</a> -->
+        </nav>
+    </header>
+
+    <main>
+        <h2>Blog Posts</h2>
+        <p>You can search by, Physics, Math, ML, Phillosophy to get related posts.</p>
+
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search blog posts...">
+        </div>
+        <p class="no-results" id="noResults">No posts found matching your search.</p>
+
+        <ul class="blog-posts" id="blogList">
+            {% for post in posts %}
+            <li>
+                <span>{{ post['created_at'][:10] }}</span>
+                <a href="{{ url_for('post', post_id=post['id']) }}">{{ post['title'] }}</a>
+            </li>
+            {% else %}
+            <li>No posts found.</li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+        <p><a href="{{ url_for('create') }}">𝚿 Talha Mahamud 𝚿</a></p>
+        <p><a href="https://www.youtube.com/@talhamahamud3176" target="_blank">YouTube</a> | <a
+                href="https://www.linkedin.com/in/talha-mahamud-bb8534208" target="_blank">LinkedIn </a>| <a
+                href="https://github.com/TalhaMahamud" target="_blank">GitHub</a></p>
+
+    </footer>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const blogList = document.getElementById('blogList');
+        const noResults = document.getElementById('noResults');
+        const allPosts = blogList.querySelectorAll('li');
+
+        searchBox.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            allPosts.forEach(post => {
+                const title = post.querySelector('a').textContent.toLowerCase();
+
+                if (title.includes(searchTerm)) {
+                    post.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+
+            // Show "no results" message if no posts match
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
