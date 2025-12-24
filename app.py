@@ -60,7 +60,8 @@ def allowed_file(filename):
 
 # Database Helper Function
 def get_db_connection():
-    conn = sqlite3.connect('database.db')
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'database.db')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
