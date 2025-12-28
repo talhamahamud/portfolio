@@ -9,7 +9,8 @@ import markdown
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key_change_this' # Change this in production
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'static', 'uploads')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16MB max limit
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'svg'}
 
