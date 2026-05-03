@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/post.css" />
+  <link rel="icon" type="image/png" href="../static/images/android-chrome-512x512.png" />
+  <title>sdf - Talha Mahamud</title>
+  <!-- Highlight.js for Code Blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- KaTeX for Quill LaTeX Formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+  <!-- MathJax for traditional $$ rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Init Highlight.js
+      hljs.highlightAll();
+
+      // Render Quill Formula spans
+      document.querySelectorAll('.ql-formula').forEach(el => {
+        try {
+          katex.render(el.getAttribute('data-value'), el, {
+            throwOnError: false,
+            displayMode: false
+          });
+        } catch (e) {
+          console.error('KaTeX error:', e);
+        }
+      });
+    });
+  </script>
+  <style>
+    .upvote-section {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.1s;
+    }
+
+    .upvote-section:active {
+      transform: scale(0.95);
+    }
+
+    .upvote-btn {
+      background: none;
+      border: 2px solid var(--text-color);
+      /* Match theme text color */
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-color);
+      transition: all 0.2s;
+    }
+
+    .upvote-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .upvote-section:hover .upvote-btn {
+      background: var(--heading-color);
+      border-color: var(--heading-color);
+      color: var(--background-color);
+    }
+
+    .upvote-count {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .upvoted .upvote-btn {
+      background: var(--heading-color);
+      border-color: var(--heading-color);
+      color: var(--background-color);
+    }
+  </style>
+
+<body>
+  <header>
+    <a class="title" href="../index.html">
+      <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+    </a>
+    <p>TO THE INFINITY AND BEYOND</p>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h1>sdf</h1>
+      <div class="post-meta">Published on 2025-12-16</div>
+
+      <div class="post-content">
+        <p>sdf testing</p>
+      </div>
+
+      <!-- Upvote Section -->
+      <div class="upvote-section" data-id="10" id="upvote-btn-10">
+        <div class="upvote-btn">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 4l-8 8h6v8h4v-8h6z" />
+          </svg>
+        </div>
+        <span class="upvote-count" id="count-10">0</span>
+      </div>
+
+      <div class="back-link">
+        <a href="../blog.html">← Back to all posts</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>𝚿 Talha Mahamud 𝚿</p>
+    <p><a href="https://www.youtube.com/@talhamahamud3176" target="_blank">YouTube</a> | <a
+        href="https://www.linkedin.com/in/talha-mahamud-bb8534208" target="_blank">LinkedIn </a>| <a
+        href="https://github.com/TalhaMahamud" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script>
+    function handleUpvote(postId) {
+      const storageKey = 'upvoted_post_' + postId;
+      if (localStorage.getItem(storageKey)) {
+        alert('You have already upvoted this post!');
+        return;
+      }
+
+      // Static UI Feedback
+      const btn = document.getElementById('upvote-btn-' + postId);
+      const countSpan = document.getElementById('count-' + postId);
+      
+      btn.classList.add('upvoted');
+      countSpan.innerText = parseInt(countSpan.innerText) + 1;
+      localStorage.setItem(storageKey, 'true');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const postId = "10";
+      const upvoteBtn = document.getElementById('upvote-btn-' + postId);
+      const countSpan = document.getElementById('count-' + postId);
+
+      if (localStorage.getItem('upvoted_post_' + postId)) {
+        upvoteBtn.classList.add('upvoted');
+        countSpan.innerText = "1"; // Show at least 1 if they upvoted
+      }
+
+      upvoteBtn.addEventListener('click', () => handleUpvote(postId));
+    });
+  </script>
+</body>
+
+</html>

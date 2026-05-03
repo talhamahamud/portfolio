@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}">
+    <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png">
     <title>Portfolio - Talha Mahamud</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio_style.css') }}">
+    <link rel="stylesheet" href="static/css/portfolio_style.css">
 </head>
 
 <body>
     <header>
-        <a class="title" href="{{ url_for('index') }}">
+        <a class="title" href="index.html">
             <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
         </a>
         <p>TO THE INFINITY AND BEYOND</p>
         <nav>
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('portfolio') }}">Portfolio</a>
-            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
             <!-- <a href="/about/">About</a> -->
         </nav>
     </header>
@@ -26,8 +26,8 @@
     <main>
         <h1>Portfolio</h1>
 
-        <a href="{{ url_for('static', filename='important/Talha_Mahamud_s_CV.pdf') }}" class="cv-button"
-            download="Talha_Mahamud_CV.pdf">Download CV</a>
+        <a href="static/important/Talha_Mahamud_s_CV.pdf" class="cv-button" download="Talha_Mahamud_CV.pdf">Download
+            CV</a>
 
         <!-- Section Navigation -->
         <div class="section-nav">
@@ -232,7 +232,7 @@
     <footer>
         <p>𝚿 Talha Mahamud 𝚿</p>
         <p><a href="https://www.youtube.com/@talhamahamud3176" target="_blank">YouTube</a> | <a
-                href="https://www.linkedin.com/in/talha-mahamud-bb8534208" target="_blank">LinkedIn </a>| <a
+                href="https://www.linkedin.com/in/talhamahamud/" target="_blank">LinkedIn </a>| <a
                 href="https://github.com/TalhaMahamud" target="_blank">GitHub</a></p>
     </footer>
 </body>
