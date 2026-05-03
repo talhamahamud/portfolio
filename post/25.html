@@ -182,30 +182,54 @@ How does the human mind try to make sense of an infinite universe?</p>
   </footer>
 
   <script>
-    function handleUpvote(postId) {
+    const NAMESPACE = 'talhamahamud_portfolio';
+
+    async function fetchUpvoteCount(postId) {
+      try {
+        const response = await fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/post_${postId}`);
+        if (!response.ok) return 0;
+        const data = await response.json();
+        return data.count || 0;
+      } catch (error) {
+        console.error('Error fetching upvote count:', error);
+        return 0;
+      }
+    }
+
+    async function handleUpvote(postId) {
       const storageKey = 'upvoted_post_' + postId;
       if (localStorage.getItem(storageKey)) {
         alert('You have already upvoted this post!');
         return;
       }
 
-      // Static UI Feedback
+      // Optimistic UI Feedback
       const btn = document.getElementById('upvote-btn-' + postId);
       const countSpan = document.getElementById('count-' + postId);
       
       btn.classList.add('upvoted');
-      countSpan.innerText = parseInt(countSpan.innerText) + 1;
+      countSpan.innerText = parseInt(countSpan.innerText || 0) + 1;
       localStorage.setItem(storageKey, 'true');
+
+      // Send API request to increment
+      try {
+        await fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/post_${postId}/up`);
+      } catch (error) {
+        console.error('Error incrementing upvote:', error);
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
       const postId = "25";
       const upvoteBtn = document.getElementById('upvote-btn-' + postId);
       const countSpan = document.getElementById('count-' + postId);
 
+      // Fetch official count and update UI
+      const count = await fetchUpvoteCount(postId);
+      countSpan.innerText = count;
+
       if (localStorage.getItem('upvoted_post_' + postId)) {
         upvoteBtn.classList.add('upvoted');
-        countSpan.innerText = "1"; // Show at least 1 if they upvoted
       }
 
       upvoteBtn.addEventListener('click', () => handleUpvote(postId));
