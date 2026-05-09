@@ -141,6 +141,22 @@ footer {
     margin-left: 1em;
 }
 
+.timeline-links {
+    margin-top: 0.4em;
+    display: flex;
+    gap: 1em;
+}
+
+.timeline-links a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.timeline-links a:hover {
+    text-decoration-thickness: 2px;
+}
+
 /* Skills */
 .skill-item {
     margin-bottom: 1em;
@@ -180,6 +196,19 @@ footer {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 0.3em;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+.project-header .project-title {
+    margin-bottom: 0;
 }
 
 .project-tech {
@@ -294,3 +323,105 @@ li {
 .section-nav a:last-child {
     margin-bottom: 0;
 }
+
+/* Research Section */
+.research-description {
+    margin-bottom: 1em;
+}
+
+.research-project-item {
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-left: 3px solid var(--bar-color);
+    background-color: var(--code-background-color);
+}
+
+.research-project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.research-project-title {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.research-status {
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.research-status.ongoing {
+    background-color: var(--bar-color);
+    color: var(--background-color);
+    border: 1px solid var(--bar-color);
+}
+
+/* Publications Section */
+.publication-item {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--bar-background);
+}
+
+.publication-item:last-child {
+    border-bottom: none;
+}
+
+.publication-title {
+    margin: 0 0 0.4em 0;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.publication-title a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.publication-title a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.publication-authors {
+    margin: 0;
+    font-size: 0.88em;
+    color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+    .publication-authors {
+        color: #aaa;
+    }
+}
+
+.publication-links {
+    margin-top: 0.6em;
+}
+
+.pub-link-btn {
+    display: inline-block;
+    padding: 4px 14px;
+    font-size: 0.82em;
+    font-weight: bold;
+    border: 1px solid var(--bar-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pub-link-btn:hover {
+    background-color: var(--bar-color);
+    color: var(--background-color);
+    text-decoration: none;
+}
+
