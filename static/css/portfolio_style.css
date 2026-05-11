@@ -15,20 +15,6 @@
     --bar-background: #e0e0e0;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #222;
-        --heading-color: #ddd;
-        --text-color: #ddd;
-        --link-color: #ddd;
-        --visited-color: #ddd;
-        --code-background-color: #000;
-        --code-color: #ddd;
-        --blockquote-color: #ccc;
-        --bar-color: #ddd;
-        --bar-background: #444;
-    }
-}
 
 * {
     box-sizing: border-box;
@@ -152,11 +138,6 @@ footer {
     margin-bottom: 0.5em;
 }
 
-@media (prefers-color-scheme: dark) {
-    .timeline-subtitle {
-        color: #aaa;
-    }
-}
 
 .timeline-description {
     margin-left: 1em;
@@ -238,11 +219,6 @@ footer {
     margin-bottom: 0.5em;
 }
 
-@media (prefers-color-scheme: dark) {
-    .project-tech {
-        color: #aaa;
-    }
-}
 
 .project-links {
     margin-top: 0.5em;
@@ -420,11 +396,6 @@ li {
     color: #666;
 }
 
-@media (prefers-color-scheme: dark) {
-    .publication-authors {
-        color: #aaa;
-    }
-}
 
 .publication-links {
     margin-top: 0.6em;

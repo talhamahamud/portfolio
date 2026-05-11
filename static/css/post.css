@@ -15,20 +15,6 @@
     --border-color: #ddd;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #222;
-        --heading-color: #ddd;
-        --text-color: #ddd;
-        --link-color: #ddd;
-        --visited-color: #ddd;
-        --code-background-color: #0d1117;
-        --code-color: #e6edf3;
-        --code-border-color: #30363d;
-        --blockquote-color: #ccc;
-        --border-color: #444;
-    }
-}
 
 pre {
     border: 6px solid rgb(189, 193, 193);
@@ -149,19 +135,6 @@ table tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-color-scheme: dark) {
-    table {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    table tbody tr:nth-of-type(even) {
-        background-color: rgba(255, 255, 255, 0.02);
-    }
-
-    table tbody tr:hover {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-}
 
 img {
     max-width: 100%;
@@ -189,15 +162,6 @@ figure.image-with-caption figcaption {
     line-height: 1.4;
 }
 
-@media (prefers-color-scheme: dark) {
-    figure.image-with-caption img {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    figure.image-with-caption figcaption {
-        color: #999;
-    }
-}
 
 code {
     padding: 3px 6px;
@@ -291,11 +255,6 @@ footer {
     border-top: 1px solid #ddd;
 }
 
-@media (prefers-color-scheme: dark) {
-    .back-link {
-        border-top-color: #444;
-    }
-}
 
 .highlight,
 .code {
