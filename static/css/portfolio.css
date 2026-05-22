@@ -454,6 +454,8 @@ footer {
   body { padding-top: 72px; }
   .outer { padding: 0 22px; }
   .topbar { padding: 12px 22px; }
+  .brand-sub { white-space: normal; }
+  .brand-sub-break { display: block; height: 0; }
   .topnav { gap: 0.7em; flex-wrap: nowrap; }
   .page-header { padding: 44px 0 24px; }
   .page-header h1 { font-size: 2.4em; }

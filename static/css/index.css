@@ -223,6 +223,8 @@ footer {
   body { padding-top: 72px; }
   .page { padding: 0 22px; }
   .topbar { padding: 12px 22px; }
+  .brand-sub { white-space: normal; }
+  .brand-sub-break { display: block; height: 0; }
   nav { gap: 0.7em; flex-wrap: nowrap; }
   .hero { padding: 52px 0 40px; }
   .hero-name { font-size: 3em; }

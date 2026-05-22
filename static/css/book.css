@@ -54,6 +54,7 @@ body {
   font-style: italic; font-weight: 400;
   font-size: 0.82em; color: var(--dim);
   display: block;
+  white-space: nowrap;
 }
 
 nav { display: flex; gap: 2em; align-items: center; }
@@ -248,25 +249,27 @@ footer {
   .page { padding: 0 22px; }
   .topbar { padding: 12px 22px; }
   nav { gap: 0.7em; flex-wrap: nowrap; }
+  .brand-sub { white-space: normal; }
+  .brand-sub-break { display: block; height: 0; }
   .page-header { padding: 44px 0 24px; }
   .page-header h1 { font-size: 2.4em; }
 
-  /* Stack num + main, hide right column */
+  /* Stack: num | main | right moves below main */
   .book-row {
     grid-template-columns: 24px 1fr;
     grid-template-rows: auto auto;
   }
   .book-right {
-    display: none;
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    margin-top: 4px;
   }
-  /* Show date inline under author on mobile */
-  .book-author::after {
-    content: attr(data-date);
-    display: block;
-    margin-top: 3px;
-    color: var(--dim2);
-    font-size: 0.92em;
-  }
+  .book-cat { display: inline; margin-bottom: 0; }
+  .book-date { display: inline; }
   footer { flex-direction: column; align-items: flex-start; gap: 14px; }
 
   /* Show scroll-to-top button on mobile */
