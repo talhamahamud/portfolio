@@ -1,713 +1,1247 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading List — Talha Mahamud</title>
   <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
-  <title>Reading List - Talha Mahamud</title>
-  <link rel="stylesheet" href="static/css/book_style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/book.css" />
 </head>
-
 <body>
-  <header>
-    <a class="title" href="index.html">
-      <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+<div class="page">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">█▓░ TM ░▓█</span>
+      <span class="brand-sub">To the infinity and beyond</span>
     </a>
-    <p>TO THE INFINITY AND BEYOND</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="portfolio.html">Portfolio</a>
       <!-- <a href="blog.html">Blog</a> -->
-      <a href="book.html">Reading List</a>
+      <a href="book.html" class="active">Reading</a>
     </nav>
-  </header>
+  </div>
 
-  <main>
-    <h2>Reading List</h2>
-    <p>
-      I read books because they open up new dimensions of thought and understanding. Here is a list of the books I've
-      explored, ranging from Philosophy, History, and beyond. You can <i> search by title, author, or
-        category.</i>
-    </p>
+  <div class="page-header">
+    <h1>Reading <em>List.</em></h1>
+    <p class="sub">Books I've explored — search by title, author, or category</p>
+  </div>
 
-    <div class="search-container">
-      <input type="text" class="search-box" id="searchBox" placeholder="Search books..." />
-    </div>
-    <p class="no-results" id="noResults">
-      No books found matching your search.
-    </p>
+  <div class="search-row">
+    <input type="text" class="search-input" id="searchBox" placeholder="Search…" />
+  </div>
+  <p class="no-results" id="noResults">Nothing found.</p>
 
-    <ul class="book-posts" id="bookList">
-      <!-- ---add your books from here---- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">50.</span>
-          <span class="book-title">ইসলামে শক্তির উৎস</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">49.</span>
-          <span class="book-title">উসমানী খিলাফতের ইতিকথা</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>AKM Nazir Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> History</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">48.</span>
-          <span class="book-title">আল কুরআনের অর্থনৈতিক নীতিমালা</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">47.</span>
-          <span class="book-title">কোরআন ও সুন্নাহ, স্থান – কাল প্রেক্ষিত</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Taha Jabir Alalwani</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">46.</span>
-          <span class="book-title">ইসলামী রাষ্ট্রে অমুসলিমদের অধিকার</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">45.</span>
-          <span class="book-title">ইসলামী ঐক্য ইসলামী আন্দোলন</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Ghulam Azam</span>
-          <span class="book-category"><i class="fas fa-tag"></i> History</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">44.</span>
-          <span class="book-title">ইসলামী আন্দোলনের নৈতিক ভিত্তি</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">43.</span>
-          <span class="book-title">দা’য়ী ইলাল্লাহ-দা’ওয়াত ইলাল্লাহ</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">42.</span>
-          <span class="book-title">তাফহীমুল কুরআনের ভূমিকা</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">41.</span>
-          <span class="book-title">ইসলামী নেতৃত্ব</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>AKM Nazir Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">40.</span>
-          <span class="book-title">একমাত্র ধর্ম</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">39.</span>
-          <span class="book-title">একটি আদর্শবাদী দলের পতনের কারণঃ তার থেকে বাঁচার উপায়</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Abbas Ali Khan</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">38.</span>
-          <span class="book-title">ইসলামী দাওয়াত ও কর্মনীতি</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> History</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">37.</span>
-          <span class="book-title">পলাশী থেকে বাংলাদেশ</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Ghulam Azam</span>
-          <span class="book-category"><i class="fas fa-tag"></i> History</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">36.</span>
-          <span class="book-title">হেদায়াত</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">35.</span>
-          <span class="book-title">চরিত্র গঠনের মৌলিক উপাদান</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Naeem Siddiqui</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">34.</span>
-          <span class="book-title">ভাঙ্গা ও গড়া</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">33.</span>
-          <span class="book-title">বাইয়াতের হাকিকাত</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Ghulam Azam</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">32.</span>
-          <span class="book-title">মুহাররমের শিক্ষা</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">31.</span>
-          <span class="book-title">ধর্ম নিরপেক্ষ মতবাদ</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Ghulam Azam</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">30.</span>
-          <span class="book-title">একটি সত্যনিষ্ঠ দলের প্রয়োজন</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sayyid Abul A'la Maududi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">29.</span>
-          <span class="book-title">Les Misérables</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Victor Hugo</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">28.</span>
-          <span class="book-title">নিজেকে গড়ুন মনের মতো</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>M. Farid Habib</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Self-help</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">27.</span>
-          <span class="book-title">The Pearl</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>John Steinbeck</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">26.</span>
-          <span class="book-title">Al-Sirah Al-Nabawiyyah</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Ibn Hisham</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Biography</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">25.</span>
-          <span class="book-title">চাঁদের অমাবস্যা</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>syed waliullah</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">24.</span>
-          <span class="book-title">চলে মুসাফির</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Josim Uddin</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Travelogue</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">23.</span>
-          <span class="book-title">সুবহে সাদিক</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Khurrom Murad</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">22.</span>
-          <span class="book-title">Nondito Noroke</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Humayun Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">21.</span>
-          <span class="book-title">কিছুক্ষণ</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Humayun Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">20.</span>
-          <span class="book-title">It’s Ends With Us</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Collen Hoover</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">19.</span>
-          <span class="book-title">Wings of fire</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>A. P. J. Abdul Kalam and Arun Tiwari</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Biography</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">18.</span>
-          <span class="book-title">Usul Al Fiqh Al Islami</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Taha Jabir Alalwani</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <!-- <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span> -->
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">17.</span>
-          <span class="book-title">Matabirodhapurna Bisaye Sathika Pantha Abalambanera Upaya</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Shah Waliullah Dehlawi</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">16.</span>
-          <span class="book-title">Badshah Namdar</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Humayun Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> July 10, 2023 - July 29, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">15.</span>
-          <span class="book-title">Srikanta</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Sarat Chandra Chattopadhyay</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> June 4, 2023 - July 10, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">14.</span>
-          <span class="book-title">Chokher Bali</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Rabindranath Tagore</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> May 21, 2023 - May 23, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">13.</span>
-          <span class="book-title">My Inventions</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Nikola Tesla</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Biography</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> May 9, 2023 - May 21, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">12.</span>
-          <span class="book-title">The Order of Time</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Carlo Rovelli</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Popular Science</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> May 4, 2023 - May 6, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">11.</span>
-          <span class="book-title">Keep Going</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Austin Kleon</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Self-help</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> April 30, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">10.</span>
-          <span class="book-title">Shaitaan Er Chokranto</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i>Imam Ibnu Abid Duniya (Rah.)</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Self-help</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> April 24, 2023 - April 28, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">9.</span>
-          <span class="book-title">Asman</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Latiful islam Shibli</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> April 18, 2023 - April 24, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">8.</span>
-          <span class="book-title">Romeo and Juliet</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> William Shakespeare</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> April 06, 2023 - April 18, 2023</span>
-        </div>
-      </li>
-      <!-- -------------------------------------------------------------- -->
+  <ul class="book-list" id="bookList">
+<!-- --------------start listing from here---------------- -->
+    <li class="book-row">
+      <span class="book-num">96</span>
+      <div class="book-main">
+        <span class="book-title">ফেরা</span>
+        <span class="book-author" data-date="2024">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2026</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">95</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 13–14)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2026</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">94</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 11–12)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2026</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">93</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 9–10)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2026</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    
+    <li class="book-row">
+      <span class="book-num">92</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 7–8)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">91</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 5–6)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">90</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 3–4)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">89</span>
+      <div class="book-main">
+        <span class="book-title">Tafhim-ul-Quran (part 1–2)</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Tafsir</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+ <li class="book-row">
+      <span class="book-num">88</span>
+      <div class="book-main">
+        <span class="book-title">কারাগারে রাতদিন</span>
+        <span class="book-author" data-date="2024">Zainab al Ghazali</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+     <li class="book-row">
+      <span class="book-num">87</span>
+      <div class="book-main">
+        <span class="book-title">Sirat-un-Nabi</span>
+        <span class="book-author" data-date="2024">Shibli Nomani and Sulaiman Nadvi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+     <li class="book-row">
+      <span class="book-num">86</span>
+      <div class="book-main">
+        <span class="book-title">Destiny Disrupted: A History of the World Through Islamic Eyes</span>
+        <span class="book-author" data-date="2024">Tamim Ansary</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">85</span>
+      <div class="book-main">
+        <span class="book-title">খেলাফত ও রাজতন্ত্র</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">84</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী সংস্কৃতির মর্মকথা</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">83</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী সমাজ বিপ্লবের ধারা</span>
+        <span class="book-author" data-date="2024">Sayyid Qutb</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">82</span>
+      <div class="book-main">
+        <span class="book-title">আধুনিক যুগঃ ইসলাম কৌশল ও কর্মসূচি</span>
+        <span class="book-author" data-date="2024">Yusuf al-Qaradawi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">81</span>
+      <div class="book-main">
+        <span class="book-title">কবীরা গুনাহ</span>
+        <span class="book-author" data-date="2024">Al-Dhahabi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">80</span>
+      <div class="book-main">
+        <span class="book-title">মুসলিম মানসে সংকট</span>
+        <span class="book-author" data-date="2024">Abdul Hamid AbuSulayman</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2025</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">79</span>
+      <div class="book-main">
+        <span class="book-title">ইসলাম ও পাশ্চাত্য সভ্যতার দ্বন্দ্ব</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">78</span>
+      <div class="book-main">
+        <span class="book-title">সুবহে সাদিক</span>
+        <span class="book-author" data-date="2024">Khurram Murad</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Self-help</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">77</span>
+      <div class="book-main">
+        <span class="book-title">ওহাবী আন্দোলন</span>
+        <span class="book-author" data-date="2024">আবদুল মওদুদ</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">76</span>
+      <div class="book-main">
+        <span class="book-title">ইসলাম ও জাতীয়তাবাদ</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">75</span>
+      <div class="book-main">
+        <span class="book-title">আযাদী আন্দোলনে আলেম সমাজের ভূমিকা</span>
+        <span class="book-author" data-date="2024">মাওলানা জুলফিকার আহমদ কিসমতি</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">74</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী রেনেসাঁ আন্দোলন</span>
+        <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Phillosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">73</span>
+      <div class="book-main">
+        <span class="book-title">আধুনিক যুগে ইসলামী বিপ্লব</span>
+        <span class="book-author" data-date="2024">Muhammad Kamaruzzaman</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Phillosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">72</span>
+      <div class="book-main">
+        <span class="book-title">মতবিরোধপূর্ণ বিষয়ে সঠিক পন্থা অবলম্বনের উপায়</span>
+        <span class="book-author" data-date="2024">Shah Waliullah Dehlawi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Phillosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">71</span>
+      <div class="book-main">
+        <span class="book-title">After The Dark</span>
+        <span class="book-author" data-date="2024">Haruki Murakami</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">70</span>
+      <div class="book-main">
+        <span class="book-title">হাজার বছর ধরে</span>
+        <span class="book-author" data-date="2024">Zahir Raihan</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">69</span>
+      <div class="book-main">
+        <span class="book-title">শেষ বিকালের মেয়ে</span>
+        <span class="book-author" data-date="2024">Zahir Raihan</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">68</span>
+      <div class="book-main">
+        <span class="book-title">Letter to Milena</span>
+        <span class="book-author" data-date="2024">Franz Kafka</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">67</span>
+      <div class="book-main">
+        <span class="book-title">নবীয়ে রহমত</span>
+        <span class="book-author" data-date="2024">Abul Hasan Ali Hasani Nadwi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">66</span>
+      <div class="book-main">
+        <span class="book-title">নক্ষত্রের রাত</span>
+        <span class="book-author" data-date="2024">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">65</span>
+      <div class="book-main">
+        <span class="book-title">Skepticism</span>
+        <span class="book-author" data-date="2024">Daniel Haqiqatjou</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">64</span>
+      <div class="book-main">
+        <span class="book-title">কাশগড়:কতনা অস্রুজল</span>
+        <span class="book-author" data-date="2024">Mohammad Enamul Hussain</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">63</span>
+      <div class="book-main">
+        <span class="book-title">মনে মনে প্রধানমন্ত্রী</span>
+        <span class="book-author" data-date="2024">Ahmed Iqbal</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">62</span>
+      <div class="book-main">
+        <span class="book-title">নিহত নক্ষত্র</span>
+        <span class="book-author" data-date="2024">Ahmed Sofa</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">61</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামি সমাজ বিপ্লবের ধারা</span>
+        <span class="book-author" data-date="2024">Sayyid Qutb</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">60</span>
+      <div class="book-main">
+        <span class="book-title">চিন্তাপরাধ</span>
+        <span class="book-author" data-date="2024">Asif Adnan</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2024</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">59</span>
+      <div class="book-main">
+        <span class="book-title">কুরআনের চারটি মৌলিক পরিভাষা</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">58</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামের পুনর্জাগরণে ইখওয়ানুল মুসলিমুনের ভূমিকা</span>
+        <span class="book-author" data-date="2023">খলিল আহমদ হামেদী</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">57</span>
+      <div class="book-main">
+        <span class="book-title">ইমাম ইবনে তাইমিয়ার সংগ্রামী জীবন</span>
+        <span class="book-author" data-date="2023">আব্দুল মান্নান তালিব</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">56</span>
+      <div class="book-main">
+        <span class="book-title">গীবত</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">55</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী উসূলে ফিকাহ</span>
+        <span class="book-author" data-date="2023">Taha Jabir Alalwani</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">54</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী সংগঠন</span>
+        <span class="book-author" data-date="2023">AKM Nazir Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">53</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী নেতৃত্বের গুণাবলী</span>
+        <span class="book-author" data-date="2023">Khurram Murad</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">52</span>
+      <div class="book-main">
+        <span class="book-title">জামায়াতে ইসলামীর ইতিহাস</span>
+        <span class="book-author" data-date="2023">Abbas Ali Khan</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">51</span>
+      <div class="book-main">
+        <span class="book-title">দার্শনিক শাহ ওয়ালী উল্লাহ দেহলভী ও তাঁর চিন্তাধারা</span>
+        <span class="book-author" data-date="2023">মাওলানা জুলফিকার আহমদ কিসমতি</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">50</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামে শক্তির উৎস</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+<!-- ------------------------------------------------------- -->
+    <li class="book-row">
+      <span class="book-num">49</span>
+      <div class="book-main">
+        <span class="book-title">উসমানী খিলাফতের ইতিকথা</span>
+        <span class="book-author" data-date="2023">AKM Nazir Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">7.</span>
-          <span class="book-title">Borof Gola Nodi</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Jahir Rayhan</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> March 28, 2023 - April 03, 2023</span>
-        </div>
-      </li>
+    <li class="book-row">
+      <span class="book-num">48</span>
+      <div class="book-main">
+        <span class="book-title">আল কুরআনের অর্থনৈতিক নীতিমালা</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">6.</span>
-          <span class="book-title">Show Your Work!</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Austin Kleon</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Self-help</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> March 15, 2023 - March 18, 2023</span>
-        </div>
-      </li>
+    <li class="book-row">
+      <span class="book-num">47</span>
+      <div class="book-main">
+        <span class="book-title">কোরআন ও সুন্নাহ, স্থান – কাল প্রেক্ষিত</span>
+        <span class="book-author" data-date="2023">Taha Jabir Alalwani</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">5.</span>
-          <span class="book-title">Taquwa</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Unknown </span>
-          <span class="book-category"><i class="fas fa-tag"></i> Islamic Philosophy</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> March 08, 2023</span>
-        </div>
-      </li>
+    <li class="book-row">
+      <span class="book-num">46</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী রাষ্ট্রে অমুসলিমদের অধিকার</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">4.</span>
-          <span class="book-title">What is Time? What is Space?</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Carlo Rovelli</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Popular Science</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> March 09, 2023 - March 11, 2023</span>
-        </div>
-      </li>
+    <li class="book-row">
+      <span class="book-num">45</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী ঐক্য ইসলামী আন্দোলন</span>
+        <span class="book-author" data-date="2023">Ghulam Azam</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">3.</span>
-          <span class="book-title">Opekkha</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Humayun Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> Feb 15, 2023 - Feb 17, 2023</span>
-        </div>
-      </li>
+    <li class="book-row">
+      <span class="book-num">44</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী আন্দোলনের নৈতিক ভিত্তি</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">2.</span>
-          <span class="book-title">Moyurakkhi</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Humayun Ahmed</span>
-          <span class="book-category"><i class="fas fa-tag"></i> Fiction</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> Feb 05, 2023 - Feb 10, 2023</span>
-        </div>
-      </li>
+    <li class="book-row">
+      <span class="book-num">43</span>
+      <div class="book-main">
+        <span class="book-title">দা’য়ী ইলাল্লাহ-দা’ওয়াত ইলাল্লাহ</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-      <li class="book-item">
-        <div class="book-header">
-          <span class="book-serial">1.</span>
-          <span class="book-title">Ar-Raheeq Al-Makhtum</span>
-        </div>
-        <div class="book-details">
-          <span class="book-author"><i class="fas fa-user"></i> Safi-ur-Rahman Mubarakpuri</span>
-          <span class="book-category"><i class="fas fa-tag"></i>Biography</span>
-          <span class="book-dates"><i class="fas fa-calendar-alt"></i> Jan 04, 2023 - Jan 21, 2023</span>
-        </div>
-      </li>
-    </ul>
-  </main>
+    <li class="book-row">
+      <span class="book-num">42</span>
+      <div class="book-main">
+        <span class="book-title">তাফহীমুল কুরআনের ভূমিকা</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
 
-<footer>
-    <p>𝚿 Talha Mahamud 𝚿</p>
-    <div class="footer-social">
-      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon">
-        <i class="fab fa-orcid"></i>
-      </a>
-      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"
-        class="footer-icon">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-      <!-- <a href="https://www.researchgate.net/profile/YOUR_PROFILE" target="_blank" title="ResearchGate"
-        class="footer-icon">
-        <i class="fab fa-researchgate"></i>
-      </a> -->
-      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon">
-        <i class="fas fa-newspaper"></i>
-      </a>
-      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon">
-        <i class="fab fa-medium"></i>
-      </a>
+    <li class="book-row">
+      <span class="book-num">41</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী নেতৃত্ব</span>
+        <span class="book-author" data-date="2023">AKM Nazir Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">40</span>
+      <div class="book-main">
+        <span class="book-title">একমাত্র ধর্ম</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">39</span>
+      <div class="book-main">
+        <span class="book-title">একটি আদর্শবাদী দলের পতনের কারণঃ তার থেকে বাঁচার উপায়</span>
+        <span class="book-author" data-date="2023">Abbas Ali Khan</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">38</span>
+      <div class="book-main">
+        <span class="book-title">ইসলামী দাওয়াত ও কর্মনীতি</span>
+        <span class="book-author" data-date="2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">37</span>
+      <div class="book-main">
+        <span class="book-title">পলাশী থেকে বাংলাদেশ</span>
+        <span class="book-author" data-date="2023">Ghulam Azam</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">History</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">36</span>
+      <div class="book-main">
+        <span class="book-title">হেদায়াত</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">35</span>
+      <div class="book-main">
+        <span class="book-title">চরিত্র গঠনের মৌলিক উপাদান</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Naeem Siddiqui</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">34</span>
+      <div class="book-main">
+        <span class="book-title">ভাঙ্গা ও গড়া</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">33</span>
+      <div class="book-main">
+        <span class="book-title">বাইয়াতের হাকিকাত</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Ghulam Azam</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">32</span>
+      <div class="book-main">
+        <span class="book-title">মুহাররমের শিক্ষা</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">31</span>
+      <div class="book-main">
+        <span class="book-title">ধর্ম নিরপেক্ষ মতবাদ</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Ghulam Azam</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">30</span>
+      <div class="book-main">
+        <span class="book-title">একটি সত্যনিষ্ঠ দলের প্রয়োজন</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Sayyid Abul A'la Maududi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">29</span>
+      <div class="book-main">
+        <span class="book-title">Les Misérables</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Victor Hugo</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">28</span>
+      <div class="book-main">
+        <span class="book-title">নিজেকে গড়ুন মনের মতো</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">M. Farid Habib</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Self-help</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">27</span>
+      <div class="book-main">
+        <span class="book-title">The Pearl</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">John Steinbeck</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">26</span>
+      <div class="book-main">
+        <span class="book-title">Al-Sirah Al-Nabawiyyah</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Ibn Hisham</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">25</span>
+      <div class="book-main">
+        <span class="book-title">চাঁদের অমাবস্যা</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">syed waliullah</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">24</span>
+      <div class="book-main">
+        <span class="book-title">চলে মুসাফির</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Josim Uddin</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Travelogue</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">23</span>
+      <div class="book-main">
+        <span class="book-title">সুবহে সাদিক</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Khurrom Murad</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">22</span>
+      <div class="book-main">
+        <span class="book-title">Nondito Noroke</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">21</span>
+      <div class="book-main">
+        <span class="book-title">কিছুক্ষণ</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">20</span>
+      <div class="book-main">
+        <span class="book-title">It’s Ends With Us</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Collen Hoover</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">19</span>
+      <div class="book-main">
+        <span class="book-title">Wings of fire</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">A. P. J. Abdul Kalam and Arun Tiwari</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">18</span>
+      <div class="book-main">
+        <span class="book-title">Usul Al Fiqh Al Islami</span>
+        <span class="book-author" data-date="July 10, 2023 - July 29, 2023">Taha Jabir Alalwani</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">17</span>
+      <div class="book-main">
+        <span class="book-title">Matabirodhapurna Bisaye Sathika Pantha Abalambanera Upaya</span>
+        <span class="book-author" data-date="July 10–29, 2023">Shah Waliullah Dehlawi</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">16</span>
+      <div class="book-main">
+        <span class="book-title">Badshah Namdar</span>
+        <span class="book-author" data-date="July 10–29, 2023">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">15</span>
+      <div class="book-main">
+        <span class="book-title">Srikanta</span>
+        <span class="book-author" data-date="June 4 - July 10, 2023">Sarat Chandra Chattopadhyay</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">14</span>
+      <div class="book-main">
+        <span class="book-title">Chokher Bali</span>
+        <span class="book-author" data-date="May 21–23, 2023">Rabindranath Tagore</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">13</span>
+      <div class="book-main">
+        <span class="book-title">My Inventions</span>
+        <span class="book-author" data-date="May 9–21, 2023">Nikola Tesla</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">12</span>
+      <div class="book-main">
+        <span class="book-title">The Order of Time</span>
+        <span class="book-author" data-date="May 4–6, 2023">Carlo Rovelli</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Popular Science</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">11</span>
+      <div class="book-main">
+        <span class="book-title">Keep Going</span>
+        <span class="book-author" data-date="Apr 30, 2023">Austin Kleon</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Self-help</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">10</span>
+      <div class="book-main">
+        <span class="book-title">Shaitaan Er Chokranto</span>
+        <span class="book-author" data-date="Apr 24–28, 2023">Imam Ibnu Abid Duniya (Rah.)</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Self-help</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">9</span>
+      <div class="book-main">
+        <span class="book-title">Asman</span>
+        <span class="book-author" data-date="Apr 18–24, 2023">Latiful Islam Shibli</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">8</span>
+      <div class="book-main">
+        <span class="book-title"><em>Romeo and Juliet</em></span>
+        <span class="book-author" data-date="Apr 6–18, 2023">William Shakespeare</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">7</span>
+      <div class="book-main">
+        <span class="book-title">Borof Gola Nodi</span>
+        <span class="book-author" data-date="Mar 28–Apr 3, 2023">Jahir Rayhan</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">6</span>
+      <div class="book-main">
+        <span class="book-title">Show Your Work!</span>
+        <span class="book-author" data-date="Mar 15–18, 2023">Austin Kleon</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Self-help</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">5</span>
+      <div class="book-main">
+        <span class="book-title">Taquwa</span>
+        <span class="book-author" data-date="Mar 8, 2023">Unknown</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Islamic Philosophy</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">4</span>
+      <div class="book-main">
+        <span class="book-title">What is Time? What is Space?</span>
+        <span class="book-author" data-date="Mar 9–11, 2023">Carlo Rovelli</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Popular Science</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">3</span>
+      <div class="book-main">
+        <span class="book-title">Opekkha</span>
+        <span class="book-author" data-date="Feb 15–17, 2023">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">2</span>
+      <div class="book-main">
+        <span class="book-title">Moyurakkhi</span>
+        <span class="book-author" data-date="Feb 5–10, 2023">Humayun Ahmed</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Fiction</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+    <li class="book-row">
+      <span class="book-num">1</span>
+      <div class="book-main">
+        <span class="book-title"><em>Ar-Raheeq Al-Makhtum</em></span>
+        <span class="book-author" data-date="Jan 4–21, 2023">Safi-ur-Rahman Mubarakpuri</span>
+      </div>
+      <div class="book-right">
+        <span class="book-cat">Biography</span>
+        <span class="book-date">2023</span>
+      </div>
+    </li>
+
+  </ul>
+
+  <footer>
+    <span class="footer-sig">© Talha Mahamud</span>
+    <div class="footer-icons">
+      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i class="fab fa-github"></i></a>
+      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i class="fas fa-newspaper"></i></a>
+      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i class="fab fa-orcid"></i></a>
+      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i class="fab fa-medium"></i></a>
     </div>
   </footer>
 
-  <script>
-    const searchBox = document.getElementById("searchBox");
-    const bookList = document.getElementById("bookList");
-    const noResults = document.getElementById("noResults");
-    const allBooks = bookList.querySelectorAll("li.book-item");
+</div>
 
-    searchBox.addEventListener("input", function () {
-      const searchTerm = this.value.toLowerCase().trim();
-      let visibleCount = 0;
+<!-- Scroll to top button (mobile only) -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
 
-      allBooks.forEach((book) => {
-        const textContent = book.textContent.toLowerCase();
+<script>
+  const sb = document.getElementById("searchBox");
+  const bl = document.getElementById("bookList");
+  const nr = document.getElementById("noResults");
+  const rows = bl.querySelectorAll("li.book-row");
 
-        if (textContent.includes(searchTerm)) {
-          book.style.display = "block";
-          visibleCount++;
-        } else {
-          book.style.display = "none";
-        }
-      });
-
-      // Show "no results" message if no books match
-      if (visibleCount === 0 && searchTerm !== "") {
-        noResults.style.display = "block";
-      } else {
-        noResults.style.display = "none";
-      }
+  sb.addEventListener("input", function () {
+    const t = this.value.toLowerCase().trim();
+    let n = 0;
+    rows.forEach(r => {
+      const show = !t || r.textContent.toLowerCase().includes(t);
+      r.style.display = show ? "grid" : "none";
+      if (show) n++;
     });
-  </script>
-</body>
+    nr.style.display = n === 0 && t ? "block" : "none";
+  });
 
+  /* ── Scroll-to-top button ── */
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  });
+  scrollBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
 </html>

@@ -1,110 +1,68 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
   <title>Talha Mahamud</title>
-  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Removed base tag to avoid conflict with Flask routing -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css" />
 </head>
-
 <body>
-  <header>
-    <a class="title" href="index.html">
-      <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+<div class="page">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">█▓░ TM ░▓█</span>
+      <span class="brand-sub">To the infinity and beyond</span>
     </a>
-    <p>TO THE INFINITY AND BEYOND</p>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="portfolio.html">Portfolio</a>
       <!-- <a href="blog.html">Blog</a> -->
-      <a href="book.html">Reading List</a>
-      <!-- <a href="/about/">About</a> -->
+      <a href="book.html">Reading</a>
     </nav>
-  </header>
+  </div>
 
-  <main>
-    <div class="intro">
-      <h1>Hello, I’m Talha Mahamud</h1>
-      <p>
-        — a physics student, machine learning enthusiast, and aspiring
-        researcher with a deep passion for understanding the universe at its
-        most fundamental level.
-      </p>
-
-      <p>
-        I dedicate my time to exploring theoretical physics, solving complex
-        mathematical problems, developing machine learning projects, and
-        creating educational tools that make science accessible and engaging
-        for everyone. My goal is to simplify complex concepts and inspire
-        curiosity in learners from all backgrounds.
-      </p>
-
-      <p>
-        I believe that every phenomenon in nature has an explanation, and I am
-        committed to discovering these truths through my own unique approach,
-        combining curiosity, rigorous study, and creativity. Beyond academics,
-        I strive to contribute meaningfully to research and build tools that
-        bridge the gap between advanced science and public understanding.
-      </p>
+  <main class="hero">
+    <h1 class="hero-name">Talha<br><em>Mahamud.</em></h1>
+    <p class="hero-role">Physics &nbsp;·&nbsp; Math &nbsp;·&nbsp; Machine Learning</p>
+    <div class="hero-divider"></div>
+    <div class="hero-bio">
+      <p>A physics student with a deep passion for understanding the universe at its most fundamental level — exploring theoretical physics, mathematics, and machine learning.</p>
+      <p>I enjoy reading, photography, singing, and traveling.</p>
     </div>
-
-    <h2>Currently Reading</h2>
-    <ul class="blog-posts">
-      <li>
-        <a href="https://en.wikipedia.org/wiki/Tafhim-ul-Quran" style="font-weight: bold; font-size: 1.05em;"
-          target="_blank">Tafhim-ul-Quran (part: 15-16)</a>
-        <div style="font-size: 0.85em; opacity: 0.8; margin-top: 6px; display: flex; gap: 15px; flex-wrap: wrap;">
-          <span><i class="fas fa-user"></i> Sayyid Abul A'la Maududi</span>
-          <span><i class="fas fa-tag"></i> Tafsir</span>
-          <span><i class="fas fa-calendar-alt"></i> Started: April 10, 2026</span>
-        </div>
-      </li>
-    </ul>
-
-    <!-- <h2>My most recent posts</h2>
-    <ul class="blog-posts">
-      <li><a href="post/25.html">This Is Why I Started Writing! </a></li>
-    </ul> -->
   </main>
 
+  <div class="reading-row">
+    <span class="reading-label">Now reading</span>
+    <div class="reading-content">
+      <a class="reading-book" href="https://en.wikipedia.org/wiki/Tafhim-ul-Quran" target="_blank">
+        Tafhim-ul-Quran (part 15–16)
+      </a>
+      <div class="reading-meta">
+        <span><i class="fas fa-user"></i>&nbsp;Sayyid Abul A'la Maududi</span>
+        <span><i class="fas fa-tag"></i>&nbsp;Tafsir</span>
+        <span><i class="fas fa-calendar-alt"></i>&nbsp;April 10, 2026</span>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>𝚿 Talha Mahamud 𝚿</p>
-    <div class="footer-social">
-      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon">
-        <i class="fab fa-orcid"></i>
-      </a>
-      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"
-        class="footer-icon">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-      <!-- <a href="https://www.researchgate.net/profile/YOUR_PROFILE" target="_blank" title="ResearchGate"
-        class="footer-icon">
-        <i class="fab fa-researchgate"></i>
-      </a> -->
-      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon">
-        <i class="fas fa-newspaper"></i>
-      </a>
-      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon">
-        <i class="fab fa-medium"></i>
-      </a>
+    <span class="footer-sig">© Talha Mahamud</span>
+    <div class="footer-icons">
+      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i class="fab fa-github"></i></a>
+      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i class="fas fa-newspaper"></i></a>
+      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i class="fab fa-orcid"></i></a>
+      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i class="fab fa-medium"></i></a>
     </div>
   </footer>
-</body>
 
+</div>
+</body>
 </html>

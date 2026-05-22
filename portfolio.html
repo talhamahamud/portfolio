@@ -1,371 +1,274 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Talha Mahamud</title>
   <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
-  <title>Portfolio - Talha Mahamud</title>
-  <link rel="stylesheet" href="static/css/portfolio_style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/portfolio.css" />
 </head>
-
 <body>
-  <header>
-    <a class="title" href="index.html">
-      <h1>█▓▒▒░░░TM░░░▒▒▓█</h1>
+<div class="outer">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">█▓░ TM ░▓█</span>
+      <span class="brand-sub">To the infinity and beyond</span>
     </a>
-    <p>TO THE INFINITY AND BEYOND</p>
-    <nav>
+    <nav class="topnav">
       <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
       <!-- <a href="blog.html">Blog</a> -->
-      <a href="book.html">Reading List</a>
-      <!-- <a href="/about/">About</a> -->
+      <a href="book.html">Reading</a>
     </nav>
-  </header>
+  </div>
 
-  <main>
-    <h1>Portfolio</h1>
+  <div class="page-header">
+    <h1>Port<em>folio.</em></h1>
+    <a href="static/important/Talha_Mahamud_s_CV.pdf" class="cv-btn" download="Talha_Mahamud_CV.pdf">
+      <i class="fas fa-download"></i> Download CV
+    </a>
+  </div>
 
-    <a href="static/important/Talha_Mahamud_s_CV.pdf" class="cv-button" download="Talha_Mahamud_CV.pdf">Download CV</a>
+  <div class="body-layout">
 
-    <!-- Section Navigation -->
-    <div class="section-nav">
+    <!-- FIXED SECTION NAV -->
+    <nav class="section-nav" id="sectionNav">
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-    </div>
+    </nav>
 
-    <!-- Education Section -->
-    <h2 id="education">Education</h2>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
 
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Bachelor of Science (Physics)</span>
-        <span class="timeline-date">February 22, 2021 - December 28, 2025</span>
-      </div>
-      <div class="timeline-subtitle">Khulna University</div>
-      <div class="timeline-description">
-        <!-- <p>
-          Graduated with honors. Focus on Machine Learning, Linear Algebra,
-          and Spin Tronics.
-        </p> -->
-      </div>
-    </div>
+      <!-- EDUCATION -->
+      <section class="port-section" id="education">
+        <h2 class="section-title">E<em>ducation</em></h2>
+        <div class="timeline">
 
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Higher Secondary Certificate</span>
-        <span class="timeline-date">January 12, 2018 - December 15, 2020</span>
-      </div>
-      <div class="timeline-subtitle">
-        AL-Haj Sarowar Khan Degree Collage, Senhati, Khulna, Bangladesh
-      </div>
-      <div class="timeline-description">
-        <!-- <p>Science track with emphasis on mathematics and physics.</p> -->
-      </div>
-    </div>
+          <div class="tl-item">
+            <div class="tl-header">
+              <span class="tl-title">Bachelor of Science — Physics</span>
+              <span class="tl-date">Feb 2021 – Dec 2025</span>
+            </div>
+            <div class="tl-sub">Khulna University</div>
+          </div>
 
-    <!-- Skills Section -->
-    <h2 id="skills">Skills</h2>
-    <div class="timeline-subtitle">
-      These skill levels are approximate, based on my self‑assessed confidence.
-    </div>
+          <div class="tl-item">
+            <div class="tl-header">
+              <span class="tl-title">Higher Secondary Certificate</span>
+              <span class="tl-date">Jan 2018 – Dec 2020</span>
+            </div>
+            <div class="tl-sub">AL-Haj Sarowar Khan Degree Collage, Senhati, Khulna, Bangladesh</div>
+          </div>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>Python</span>
-        <span>70%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 70%"></div>
-      </div>
-    </div>
+        </div>
+      </section>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>MATLAB</span>
-        <span>35%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 35%"></div>
-      </div>
-    </div>
+      <!-- SKILLS -->
+      <section class="port-section" id="skills">
+        <h2 class="section-title">S<em>kills</em></h2>
+        <p class="skills-note">Self-assessed confidence levels.</p>
+        <div class="skills-grid">
+          <div class="skill-row"><span class="skill-label">Python</span>        <div class="skill-track"><div class="skill-fill" data-w="70"></div></div><span class="skill-pct">70%</span></div>
+          <div class="skill-row"><span class="skill-label">LaTeX</span>         <div class="skill-track"><div class="skill-fill" data-w="60"></div></div><span class="skill-pct">60%</span></div>
+          <div class="skill-row"><span class="skill-label">HTML / CSS</span>    <div class="skill-track"><div class="skill-fill" data-w="45"></div></div><span class="skill-pct">45%</span></div>
+          <div class="skill-row"><span class="skill-label">C</span>             <div class="skill-track"><div class="skill-fill" data-w="40"></div></div><span class="skill-pct">40%</span></div>
+          <div class="skill-row"><span class="skill-label">C++</span>           <div class="skill-track"><div class="skill-fill" data-w="35"></div></div><span class="skill-pct">35%</span></div>
+          <div class="skill-row"><span class="skill-label">MATLAB</span>        <div class="skill-track"><div class="skill-fill" data-w="35"></div></div><span class="skill-pct">35%</span></div>
+          <div class="skill-row"><span class="skill-label">Git</span>           <div class="skill-track"><div class="skill-fill" data-w="25"></div></div><span class="skill-pct">25%</span></div>
+          <div class="skill-row"><span class="skill-label">Machine Learning</span><div class="skill-track"><div class="skill-fill" data-w="10"></div></div><span class="skill-pct">10%</span></div>
+          <div class="skill-row"><span class="skill-label">Blender 3D</span>   <div class="skill-track"><div class="skill-fill" data-w="8"></div></div><span class="skill-pct">8%</span></div>
+          <div class="skill-row"><span class="skill-label">Illustrator</span>  <div class="skill-track"><div class="skill-fill" data-w="8"></div></div><span class="skill-pct">8%</span></div>
+        </div>
+      </section>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>HTML/CSS</span>
-        <span>45%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 45%"></div>
-      </div>
-    </div>
+      <!-- RESEARCH -->
+      <section class="port-section" id="research">
+        <h2 class="section-title">R<em>esearch</em></h2>
+        <p class="research-desc">
+          My research focuses on <strong>Spintronics</strong> — exploiting the intrinsic spin of electrons and their associated magnetic moments, alongside electronic charge, for advanced information processing. At Khulna University, I investigate quantum spin phenomena and their potential applications in next-generation computing, high-speed memory devices, and energy-efficient spin-based electronics.
+        </p>
+        <div class="research-card">
+          <div class="research-card-head">
+            <span class="research-name">Altermagnet Spin Reversal Mechanism</span>
+            <span class="status-badge">Ongoing</span>
+          </div>
+          <p>Studying spin-torque and exchange-driven spin dynamics of altermagnets.</p>
+        </div>
+      </section>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>C</span>
-        <span>40%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 40%"></div>
-      </div>
-    </div>
+      <!-- PUBLICATIONS -->
+      <section class="port-section" id="publications">
+        <h2 class="section-title">P<em>ublications</em></h2>
+        <div class="pub-list">
+          <div class="pub-item">
+            <p class="pub-title">Ensemble Learning Based Pulsar Detection Along with Feature Engineering</p>
+            <p class="pub-authors">T. Mahamud, S. Rahman, AA. Nahid</p>
+            <a href="https://tinyurl.com/mr3cyddw" target="_blank" class="pub-link">View Paper</a>
+          </div>
+        </div>
+      </section>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>C++</span>
-        <span>35%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 40%"></div>
-      </div>
-    </div>
+      <!-- PROJECTS -->
+      <section class="port-section" id="projects">
+        <h2 class="section-title">P<em>rojects</em></h2>
+        <div class="project-list">
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>Git</span>
-        <span>25%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 25%"></div>
-      </div>
-    </div>
+          <div class="project-item">
+            <div class="project-head">
+              <span class="project-name">ExoQuest</span>
+            </div>
+            <div class="project-tech">Python · Math · Physics · Game Development · NASA</div>
+            <p class="project-body">An educational app that introduces students to exoplanets through interactive games inspired by NASA's discoveries. Built for the <strong>NASA Space Apps Challenge 2024</strong>.</p>
+            <div class="project-links">
+              <a href="https://www.youtube.com/watch?v=KstHalciXNw" target="_blank"><i class="fab fa-youtube"></i> Watch</a>
+            </div>
+          </div>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>Machine Learning</span>
-        <span>10%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 10%"></div>
-      </div>
-    </div>
+          <div class="project-item">
+            <div class="project-head">
+              <span class="project-name">PINN Foundations</span>
+              <span class="status-badge">Ongoing</span>
+            </div>
+            <div class="project-tech">Python · PyTorch · JAX</div>
+            <p class="project-body">Foundations of Physics-Informed Neural Networks — exploring both theoretical underpinnings and practical implementations across scientific and engineering domains.</p>
+            <div class="project-links">
+              <a href="https://github.com/talhamahamud/PINN-Lab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>Latex</span>
-        <span>60%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 60%"></div>
-      </div>
-    </div>
+          <div class="project-item">
+            <div class="project-head">
+              <span class="project-name">LeetCode 300 Challenge</span>
+              <span class="status-badge">Ongoing</span>
+            </div>
+            <div class="project-tech">Python · LeetCode</div>
+            <p class="project-body">A structured journey solving 300 algorithmic problems to sharpen data structures and coding skills.</p>
+            <div class="project-links">
+              <a href="https://github.com/talhamahamud/leetcode-300-challenge" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.youtube.com/playlist?list=PLBITHx-077SnKki3RgkmuXQg3TgTzrMq-" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
+          </div>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>Blender 3D</span>
-        <span>8%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 8%"></div>
-      </div>
-    </div>
+        </div>
+      </section>
 
-    <div class="skill-item">
-      <div class="skill-name">
-        <span>Adobe Illustrator</span>
-        <span>8%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width: 8%"></div>
-      </div>
-    </div>
+      <!-- EXPERIENCE -->
+      <section class="port-section" id="experience">
+        <h2 class="section-title">E<em>xperience</em></h2>
+        <div class="timeline">
 
+          <div class="tl-item">
+            <div class="tl-header">
+              <span class="tl-title">Python For Beginners'</span>
+              <span class="tl-date">Jun 6 – Jun 16, 2023</span>
+            </div>
+            <div class="tl-sub">Fermion Physics Club</div>
+            <div class="tl-body">
+              <ul>
+                <li>Fundamentals of Python</li>
+                <li>How code executes in Python</li>
+                <li>Problem solving</li>
+              </ul>
+            </div>
+            <div class="tl-links">
+              <a href="https://www.youtube.com/playlist?list=PLQwh6OKe4ernIpNKXUuEl3kE0QBG17zu6" target="_blank"><i class="fab fa-youtube"></i> View Playlist</a>
+            </div>
+          </div>
 
-    <!-- Research Section -->
-    <h2 id="research">My Research</h2>
+          <div class="tl-item">
+            <div class="tl-header">
+              <span class="tl-title">Workshop on MATLAB &amp; Python Libraries</span>
+              <span class="tl-date">Sep 24, 2024</span>
+            </div>
+            <div class="tl-sub">Fermion Physics Club</div>
+            <div class="tl-body">
+              <ul>
+                <li>When and why to use scientific libraries</li>
+                <li>NumPy, Matplotlib, Pandas</li>
+              </ul>
+            </div>
+            <div class="tl-links">
+              <a href="https://www.youtube.com/playlist?list=PLQwh6OKe4erkhygdqqxf1a-5zjeYOlKLs" target="_blank"><i class="fab fa-youtube"></i> View Playlist</a>
+            </div>
+          </div>
 
-    <p class="research-description">
-      My research focuses on <strong>Spintronics</strong>, an emerging field that exploits the intrinsic spin of
-      electrons and their associated magnetic moments, alongside electronic charge, for advanced information processing
-      technologies. At Khulna University, I investigate quantum spin phenomena and their potential applications in
-      next-generation computing architectures, high-speed memory devices, and energy-efficient spin-based electronics.
-    </p>
+          <div class="tl-item">
+            <div class="tl-header">
+              <span class="tl-title">The Written Spectrum</span>
+              <span class="tl-date">Jan 2022 – Present</span>
+            </div>
+            <div class="tl-sub">Medium &amp; Substack</div>
+            <div class="tl-body">
+              <ul>
+                <li>Writing on Algorithm, Philosophy, Physics, and Machine Learning</li>
+                <li>Explaining complex concepts for a general audience</li>
+                <li>Publishing insights, thoughts, and learning notes</li>
+              </ul>
+            </div>
+            <div class="tl-links">
+              <a href="https://medium.com/@iamtalhamahamud" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+              <a href="https://talhamahamud.substack.com/" target="_blank"><i class="fas fa-newspaper"></i> Substack</a>
+            </div>
+          </div>
 
-    <h3>Current Projects</h3>
+        </div>
+      </section>
 
-    <div class="research-project-item">
-      <div class="research-project-header">
-        <span class="research-project-title">Altermagnet Spin Reversal Mechanism</span>
-        <span class="research-status ongoing">Ongoing</span>
-      </div>
-      <p>
-        I'm studying the Spin-torque and exchange driven Spin dynamics of Altermagnet.
-      </p>
-    </div>
+    </div><!-- /main-content -->
+  </div><!-- /body-layout -->
 
-    <!-- Publications Section -->
-    <h2 id="publications">Publications</h2>
-
-    <div class="publication-item">
-      <p class="publication-title">
-        1. Ensemble Learning Based Pulsar Detection Along with Feature Engineering
-      </p>
-      <p class="publication-authors">
-        T. Mahamud, S. Rahman, AA. Nahid
-      </p>
-      <div class="publication-links">
-        <a href="https://tinyurl.com/mr3cyddw" target="_blank" id="pub-link-1" class="pub-link-btn">View Paper</a>
-      </div>
-    </div>
-
-    <!-- Projects Section -->
-    <h2 id="projects">Projects</h2>
-
-    <div class="project-item">
-      <div class="project-title">ExoQuest</div>
-      <div class="project-tech">Python, Math, Physics, Game Development, NASA</div>
-      <p>
-        ExoQuest is an engaging educational app that introduces students to
-        the fascinating world of exoplanets through interactive games inspired
-        by NASA's discoveries. This project is a part of <strong>NASA Space Apps Challenge</strong> 2024.
-      </p>
-      <div class="project-links">
-        <a href="https://www.youtube.com/watch?v=KstHalciXNw" target="_blank">Watch</a>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <div class="project-header">
-        <div class="project-title">PINN Foundations</div>
-        <span class="research-status ongoing">Ongoing</span>
-      </div>
-      <div class="project-tech">Python, Pytorch, JAX</div>
-      <p>
-        Foundations of Physics‑Informed Neural Networks, exploring both theoretical underpinnings and practical
-        implementations in diverse scientific and engineering domains.
-      </p>
-      <div class="project-links">
-        <a href="https://github.com/talhamahamud/PINN-Lab" target="_blank">GitHub</a>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <div class="project-header">
-        <div class="project-title">LeetCode 300 Challenge</div>
-        <span class="research-status ongoing">Ongoing</span>
-      </div>
-      <div class="project-tech">Python, LeetCode</div>
-      <p>
-        A structured journey solving 300 algorithmic problems to sharpen data structures and coding skills.
-      </p>
-      <div class="project-links">
-        <a href="https://github.com/talhamahamud/leetcode-300-challenge" target="_blank">GitHub</a>
-        <a href="https://www.youtube.com/playlist?list=PLBITHx-077SnKki3RgkmuXQg3TgTzrMq-" target="_blank">YouTube</a>
-      </div>
-    </div>
-
-    <!-- Experience Section -->
-    <h2 id="experience">Experience</h2>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Python For Beginners'</span>
-        <span class="timeline-date">June 6, 2023 - June 16, 2023</span>
-      </div>
-      <div class="timeline-subtitle">Fermion Physics Club</div>
-      <div class="timeline-description">
-        <ul>
-          <li>Basic of Python</li>
-          <li>How code work in Python</li>
-          <li>Problem Solving</li>
-        </ul>
-      </div>
-      <a href="https://www.youtube.com/playlist?list=PLQwh6OKe4ernIpNKXUuEl3kE0QBG17zu6" target="_blank">View</a>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">A Workshop On MATLAB &amp; Python Libraries</span>
-        <span class="timeline-date">September 24, 2024</span>
-      </div>
-      <div class="timeline-subtitle">Fermion Physics Club</div>
-      <div class="timeline-description">
-        <ul>
-          <li>Where and Why Should we use this libraries</li>
-          <li>Numpy</li>
-          <li>Matplotlib</li>
-          <li>Pandas</li>
-        </ul>
-      </div>
-      <a href="https://www.youtube.com/playlist?list=PLQwh6OKe4erkhygdqqxf1a-5zjeYOlKLs" target="_blank">View</a>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">The Written Spectrum</span>
-        <span class="timeline-date">January 16, 2022 - Present</span>
-      </div>
-      <div class="timeline-subtitle">Medium &amp; Substack</div>
-      <div class="timeline-description">
-        <ul>
-          <li>Writing articles on Algorithm, Philosophy, Physics, Machine Learning etc.</li>
-          <li>Explaining complex concepts for a general audience</li>
-          <li>Publishing inspiring thoughts, insights and learning notes</li>
-        </ul>
-      </div>
-      <div class="timeline-links">
-        <a href="https://medium.com/@iamtalhamahamud" target="_blank">Medium</a>
-        <a href="https://talhamahamud.substack.com/" target="_blank">Substack</a>
-      </div>
-    </div>
-
-    <!-- <div class="timeline-item">
-      <div class="timeline-header">
-        <span class="timeline-title">Linear Algebra</span>
-        <span class="timeline-date">2023</span>
-      </div>
-      <div class="timeline-subtitle">You Tube</div>
-      <div class="timeline-description">
-        <ul>
-          <li>Explanation</li>
-          <li>Problem Solving</li>
-        </ul>
-      </div>
-      <a href="https://www.youtube.com/playlist?list=PLBITHx-077SlkaqsyAdaxGPBSjSGH4E_O">View</a>
-    </div> -->
-
-  </main>
-
-<footer>
-    <p>𝚿 Talha Mahamud 𝚿</p>
-    <div class="footer-social">
-      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon">
-        <i class="fab fa-orcid"></i>
-      </a>
-      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"
-        class="footer-icon">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-      <!-- <a href="https://www.researchgate.net/profile/YOUR_PROFILE" target="_blank" title="ResearchGate"
-        class="footer-icon">
-        <i class="fab fa-researchgate"></i>
-      </a> -->
-      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon">
-        <i class="fas fa-newspaper"></i>
-      </a>
-      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon">
-        <i class="fab fa-medium"></i>
-      </a>
+  <footer>
+    <span class="footer-sig">© Talha Mahamud</span>
+    <div class="footer-icons">
+      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i class="fab fa-github"></i></a>
+      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i class="fas fa-newspaper"></i></a>
+      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i class="fab fa-orcid"></i></a>
+      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i class="fab fa-medium"></i></a>
     </div>
   </footer>
-</body>
 
+</div><!-- /outer -->
+
+<script>
+  /* ── Animate skill bars on scroll ── */
+  const fills = document.querySelectorAll('.skill-fill');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.w + '%';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  fills.forEach(f => io.observe(f));
+
+  /* ── Highlight active section nav link ── */
+  const sections = document.querySelectorAll('.port-section');
+  const navLinks = document.querySelectorAll('.section-nav a');
+
+  const sio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('is-active'));
+        const active = document.querySelector('.section-nav a[href="#' + e.target.id + '"]');
+        if (active) active.classList.add('is-active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => sio.observe(s));
+</script>
+</body>
 </html>
