@@ -223,7 +223,7 @@ footer {
   body { padding-top: 72px; }
   .page { padding: 0 22px; }
   .topbar { padding: 12px 22px; }
-  nav { gap: 1.2em; flex-wrap: wrap; }
+  nav { gap: 0.7em; flex-wrap: nowrap; }
   .hero { padding: 52px 0 40px; }
   .hero-name { font-size: 3em; }
   .hero-bio p { font-size: 1em; }

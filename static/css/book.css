@@ -247,7 +247,7 @@ footer {
   body { padding-top: 72px; }
   .page { padding: 0 22px; }
   .topbar { padding: 12px 22px; }
-  nav { gap: 1.2em; flex-wrap: wrap; }
+  nav { gap: 0.7em; flex-wrap: nowrap; }
   .page-header { padding: 44px 0 24px; }
   .page-header h1 { font-size: 2.4em; }
 
@@ -276,6 +276,6 @@ footer {
 }
 
 @media (max-width: 440px) {
-  nav { gap: 1em; }
+  nav { gap: 0.6em; }
   nav a { font-size: 0.62em; }
 }
