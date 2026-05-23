@@ -164,7 +164,7 @@ body {
   padding: 20px 0;
   border-bottom: 1px solid var(--rule);
 }
-.tl-item:first-child { border-top: 1px solid var(--rule); }
+
 
 .tl-header {
   display: flex;
@@ -300,7 +300,7 @@ body {
   padding: 20px 0;
   border-bottom: 1px solid var(--rule);
 }
-.pub-item:first-child { border-top: 1px solid var(--rule); }
+
 
 .pub-title {
   font-family: 'EB Garamond', serif;
@@ -333,7 +333,7 @@ body {
   padding: 22px 0;
   border-bottom: 1px solid var(--rule);
 }
-.project-item:first-child { border-top: 1px solid var(--rule); }
+
 
 .project-head {
   display: flex;
