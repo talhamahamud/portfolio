@@ -116,7 +116,7 @@ body {
   width: var(--section-nav-w);
   flex-shrink: 0;
   position: sticky;
-  top: 32px;
+  top: 65px;
   /* stays in normal flow, sticks while scrolling */
 }
 
