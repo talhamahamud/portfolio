@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Talha Mahamud</title>
+  <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: #0f0f0f; color: #fafafa; }
+
+    :root {
+      --ink:   #0f0f0f;
+      --paper: #fafafa;
+      --dim:   #999;
+      --dim2:  #666;
+      --rule:  #e0e0e0;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 0 0;
+      opacity: 0;
+      animation: appear 0.4s ease 0.05s forwards;
+    }
+
+    .brand { text-decoration: none; color: inherit; line-height: 1.25; }
+    .brand-mark {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300; font-size: 0.72em;
+      letter-spacing: 0.16em; color: var(--ink);
+      display: block;
+    }
+    .brand-sub {
+      font-family: 'EB Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 0.82em; color: var(--dim);
+      display: block;
+    }
+
+    nav { display: flex; gap: 2em; align-items: center; }
+    nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68em; font-weight: 300;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim); text-decoration: none;
+      transition: color 0.15s;
+    }
+    nav a:hover, nav a.active { color: var(--ink); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 64px 0 36px;
+      opacity: 0;
+      animation: slideup 0.55s ease 0.15s forwards;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.6em, 6vw, 4.2em);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .page-header h1 em { font-style: italic; }
+
+    .page-header .sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7em; font-weight: 300;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* ── TAG FILTERS ── */
+    .tag-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: appear 0.5s ease 0.22s forwards;
+    }
+
+    .tag-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62em; font-weight: 300;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--dim);
+      background: transparent;
+      border: 1px solid var(--rule);
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .tag-btn:hover  { color: var(--ink); border-color: var(--ink); }
+    .tag-btn.active { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+
+    /* ── SEARCH ── */
+    .search-row {
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      animation: appear 0.5s ease 0.28s forwards;
+    }
+
+    .search-input {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78em; font-weight: 300;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      outline: none;
+      padding: 6px 0;
+      width: 260px;
+      max-width: 100%;
+      transition: border-color 0.2s;
+    }
+    .search-input::placeholder { color: var(--dim); }
+    .search-input:focus { border-color: var(--ink); }
+
+    .no-results {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72em; color: var(--dim);
+      margin-top: 32px; display: none;
+    }
+
+    /* ── POST LIST ── */
+    .post-list {
+      list-style: none;
+      opacity: 0;
+      animation: appear 0.55s ease 0.38s forwards;
+    }
+
+    .post-row {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      align-items: baseline;
+      column-gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: padding-left 0.18s;
+    }
+    .post-row:hover { padding-left: 5px; }
+
+    .post-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65em; font-weight: 400;
+      color: var(--dim2);
+      white-space: nowrap;
+    }
+
+    .post-title {
+      font-size: 1.08em;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.35;
+      transition: opacity 0.15s;
+    }
+    .post-title:hover { opacity: 0.5; }
+    .post-title:visited { color: var(--dim2); }
+
+    .post-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .post-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58em; font-weight: 300;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid var(--rule);
+      padding: 2px 7px;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 24px 0 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      opacity: 0;
+      animation: appear 0.5s ease 0.55s forwards;
+    }
+
+    .footer-sig {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65em; font-weight: 300;
+      letter-spacing: 0.1em; color: var(--dim);
+    }
+
+    .footer-icons { display: flex; gap: 0.9em; flex-wrap: wrap; }
+    .footer-icon {
+      font-size: 0.88em; color: var(--dim);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .footer-icon:hover { color: var(--ink); }
+
+    @keyframes appear  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .page { padding: 0 22px; }
+      .topbar { padding: 28px 0 0; flex-direction: column; align-items: flex-start; gap: 18px; }
+      nav { gap: 1.2em; flex-wrap: wrap; }
+      .page-header { padding: 44px 0 24px; }
+      .page-header h1 { font-size: 2.4em; }
+      .post-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .post-date { font-size: 0.6em; }
+      .post-tags { justify-content: flex-start; margin-top: 6px; }
+      footer { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+
+    @media (max-width: 440px) {
+      nav { gap: 1em; }
+      nav a { font-size: 0.62em; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">█▓░ TM ░▓█</span>
+      <span class="brand-sub">To the infinity and beyond</span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="book.html">Reading</a>
+    </nav>
+  </div>
+
+  <div class="page-header">
+    <h1>Blog <em>Posts.</em></h1>
+    <p class="sub">Thoughts on Physics, Math, ML &amp; Philosophy</p>
+  </div>
+
+  <!-- TAG FILTERS -->
+  <div class="tag-filters" id="tagFilters">
+    <button class="tag-btn active" data-tag="all">All</button>
+    <button class="tag-btn" data-tag="physics">Physics</button>
+    <button class="tag-btn" data-tag="math">Math</button>
+    <button class="tag-btn" data-tag="ml">ML</button>
+    <button class="tag-btn" data-tag="philosophy">Philosophy</button>
+    <button class="tag-btn" data-tag="writing">Writing</button>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-row">
+    <input type="text" class="search-input" id="searchBox" placeholder="Search posts…" />
+  </div>
+  <p class="no-results" id="noResults">Nothing found.</p>
+
+  <!-- POST LIST -->
+  <ul class="post-list" id="postList">
+
+    <li class="post-row" data-tags="writing">
+      <span class="post-date">2025-12-24</span>
+      <a class="post-title" href="post/25.html">This Is Why I Started Writing!</a>
+      <div class="post-tags">
+        <span class="post-tag">Writing</span>
+      </div>
+    </li>
+
+    <!-- Add more posts here following the same pattern:
+    <li class="post-row" data-tags="physics math">
+      <span class="post-date">2025-11-10</span>
+      <a class="post-title" href="post/24.html">Post Title Here</a>
+      <div class="post-tags">
+        <span class="post-tag">Physics</span>
+        <span class="post-tag">Math</span>
+      </div>
+    </li>
+    -->
+
+  </ul>
+
+  <footer>
+    <span class="footer-sig">© Talha Mahamud</span>
+    <div class="footer-icons">
+      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i class="fab fa-github"></i></a>
+      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i class="fas fa-newspaper"></i></a>
+      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i class="fab fa-orcid"></i></a>
+      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i class="fab fa-medium"></i></a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const searchBox  = document.getElementById('searchBox');
+  const postList   = document.getElementById('postList');
+  const noResults  = document.getElementById('noResults');
+  const tagBtns    = document.querySelectorAll('.tag-btn');
+  const allRows    = postList.querySelectorAll('li.post-row');
+
+  let activeTag = 'all';
+
+  function filter() {
+    const term = searchBox.value.toLowerCase().trim();
+    let visible = 0;
+
+    allRows.forEach(row => {
+      const titleMatch = row.querySelector('.post-title').textContent.toLowerCase().includes(term);
+      const rowTags    = row.dataset.tags || '';
+      const tagMatch   = activeTag === 'all' || rowTags.includes(activeTag);
+      const show       = titleMatch && tagMatch;
+
+      row.style.display = show ? 'grid' : 'none';
+      if (show) visible++;
+    });
+
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  searchBox.addEventListener('input', filter);
+
+  tagBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tagBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTag = btn.dataset.tag;
+      filter();
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Title — Talha Mahamud</title>
+  <link rel="icon" type="image/png" href="../static/images/android-chrome-512x512.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: #0f0f0f; color: #fafafa; }
+
+    :root {
+      --ink:   #0f0f0f;
+      --paper: #fafafa;
+      --dim:   #999;
+      --dim2:  #555;
+      --rule:  #e0e0e0;
+      --code-bg: #f2f2f2;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 0 0;
+      opacity: 0;
+      animation: appear 0.4s ease 0.05s forwards;
+    }
+
+    .brand { text-decoration: none; color: inherit; line-height: 1.25; }
+    .brand-mark {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300; font-size: 0.72em;
+      letter-spacing: 0.16em; color: var(--ink);
+      display: block;
+    }
+    .brand-sub {
+      font-family: 'EB Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 0.82em; color: var(--dim);
+      display: block;
+    }
+
+    nav { display: flex; gap: 2em; align-items: center; }
+    nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68em; font-weight: 300;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim); text-decoration: none;
+      transition: color 0.15s;
+    }
+    nav a:hover, nav a.active { color: var(--ink); }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: slideup 0.6s ease 0.15s forwards;
+    }
+
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65em; font-weight: 300;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim); text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+    .post-back:hover { color: var(--ink); }
+    .post-back i { font-size: 0.85em; }
+
+    .post-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .post-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6em; font-weight: 300;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid var(--rule);
+      padding: 2px 9px;
+    }
+
+    .post-header h1 {
+      font-size: clamp(1.9em, 5vw, 2.8em);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .post-header h1 em { font-style: italic; }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .post-meta-item {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68em; font-weight: 300;
+      color: var(--dim);
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ── POST BODY ── */
+    .post-body {
+      opacity: 0;
+      animation: appear 0.6s ease 0.3s forwards;
+    }
+
+    .post-body p {
+      font-size: 1.1em;
+      line-height: 1.85;
+      color: #2a2a2a;
+      margin-bottom: 1.4em;
+    }
+
+    .post-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.55em; font-weight: 500;
+      letter-spacing: -0.01em;
+      margin: 2.2em 0 0.7em;
+      color: var(--ink);
+    }
+
+    .post-body h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.25em; font-weight: 500;
+      margin: 1.8em 0 0.5em;
+      color: var(--ink);
+    }
+
+    .post-body a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: opacity 0.15s;
+    }
+    .post-body a:hover { opacity: 0.5; }
+
+    .post-body strong { font-weight: 500; }
+    .post-body em    { font-style: italic; }
+
+    /* Blockquote */
+    .post-body blockquote {
+      border-left: 2px solid var(--ink);
+      padding: 2px 0 2px 22px;
+      margin: 1.8em 0;
+      font-style: italic;
+      color: var(--dim2);
+    }
+
+    .post-body blockquote p { color: var(--dim2); margin-bottom: 0; }
+
+    /* Code inline */
+    .post-body code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82em; font-weight: 300;
+      background: var(--code-bg);
+      border: 1px solid var(--rule);
+      padding: 2px 6px;
+      color: var(--ink);
+    }
+
+    /* Code block */
+    .post-body pre {
+      background: var(--code-bg);
+      border: 1px solid var(--rule);
+      padding: 20px 22px;
+      overflow-x: auto;
+      margin: 1.8em 0;
+    }
+
+    .post-body pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 0.85em;
+      line-height: 1.65;
+      display: block;
+    }
+
+    /* Images */
+    .post-body img {
+      max-width: 100%;
+      display: block;
+      margin: 2em auto;
+    }
+
+    /* Figure + caption */
+    .post-body figure {
+      margin: 2.2em 0;
+      text-align: center;
+    }
+
+    .post-body figcaption {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68em; font-weight: 300;
+      color: var(--dim);
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* Lists */
+    .post-body ul,
+    .post-body ol {
+      margin: 0 0 1.4em 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .post-body ul li,
+    .post-body ol li {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #2a2a2a;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 0.3em;
+    }
+
+    .post-body ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--dim);
+    }
+
+    .post-body ol { counter-reset: ol-counter; }
+    .post-body ol li { counter-increment: ol-counter; }
+    .post-body ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute; left: 0;
+      color: var(--dim);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75em; font-weight: 300;
+    }
+
+    /* Tables */
+    .post-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+      font-size: 0.92em;
+    }
+
+    .post-body th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72em; font-weight: 400;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--ink);
+      color: var(--ink);
+    }
+
+    .post-body td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .post-body tr:hover td { background: #f5f5f5; }
+
+    /* Horizontal rule */
+    .post-body hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5em 0;
+    }
+
+    /* Math (KaTeX/MathJax friendly) */
+    .post-body .math-block {
+      overflow-x: auto;
+      margin: 1.8em 0;
+      text-align: center;
+    }
+
+    /* ── POST FOOTER ── */
+    .post-footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      opacity: 0;
+      animation: appear 0.5s ease 0.5s forwards;
+    }
+
+    .post-back-bottom {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.66em; font-weight: 300;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .post-back-bottom:hover { color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 40px;
+      padding: 24px 0 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      opacity: 0;
+      animation: appear 0.5s ease 0.6s forwards;
+    }
+
+    .footer-sig {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65em; font-weight: 300;
+      letter-spacing: 0.1em; color: var(--dim);
+    }
+
+    .footer-icons { display: flex; gap: 0.9em; flex-wrap: wrap; }
+    .footer-icon {
+      font-size: 0.88em; color: var(--dim);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .footer-icon:hover { color: var(--ink); }
+
+    @keyframes appear  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .page { padding: 0 22px; }
+      .topbar { padding: 28px 0 0; flex-direction: column; align-items: flex-start; gap: 18px; }
+      nav { gap: 1.2em; flex-wrap: wrap; }
+      .post-header { padding: 40px 0 28px; margin-bottom: 32px; }
+      .post-header h1 { font-size: 1.9em; }
+      .post-body p, .post-body li { font-size: 1em; }
+      .post-footer { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+
+    @media (max-width: 440px) {
+      nav { gap: 1em; }
+      nav a { font-size: 0.62em; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">█▓░ TM ░▓█</span>
+      <span class="brand-sub">To the infinity and beyond</span>
+    </a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../blog.html" class="active">Blog</a>
+      <a href="../book.html">Reading</a>
+    </nav>
+  </div>
+
+  <!-- ── POST HEADER ── -->
+  <div class="post-header">
+    <a class="post-back" href="../blog.html">
+      <i class="fas fa-arrow-left"></i> All Posts
+    </a>
+
+    <div class="post-tags">
+      <span class="post-tag">Writing</span>
+      <!-- Add more tags as needed -->
+    </div>
+
+    <h1>This Is Why I<br><em>Started Writing!</em></h1>
+
+    <div class="post-meta">
+      <span class="post-meta-item">
+        <i class="fas fa-calendar-alt"></i> December 24, 2025
+      </span>
+      <span class="post-meta-item">
+        <i class="fas fa-user"></i> Talha Mahamud
+      </span>
+      <span class="post-meta-item">
+        <i class="fas fa-clock"></i> 5 min read
+      </span>
+    </div>
+  </div>
+
+  <!-- ── POST BODY ── -->
+  <!-- Replace the content below with your actual post content -->
+  <article class="post-body">
+
+    <p>
+      Writing is one of those things I kept putting off. There was always a reason — not enough time, not enough knowledge, not enough confidence that what I had to say was worth anyone's attention.
+    </p>
+
+    <p>
+      But then I started noticing something: the moments I understood something deeply were almost always the moments I tried to explain it to someone else. Teaching forces clarity. And writing, I realized, is just a more permanent form of that.
+    </p>
+
+    <h2>The Real Reason</h2>
+
+    <p>
+      I study physics. Every day I encounter ideas that are genuinely astonishing — and genuinely hard to hold onto. Writing forces me to slow down. To translate the mathematical into the verbal. To find the metaphor that makes the abstract feel real.
+    </p>
+
+    <blockquote>
+      <p>If you can't explain it simply, you don't understand it well enough.</p>
+    </blockquote>
+
+    <p>
+      I'm not sure Einstein actually said that. But it doesn't matter — it's true. And it describes exactly what I want writing to do for me.
+    </p>
+
+    <h2>What I'll Write About</h2>
+
+    <p>
+      Mostly physics and mathematics. Sometimes machine learning. Occasionally philosophy, because the boundaries between these fields are more porous than the textbooks suggest.
+    </p>
+
+    <p>
+      I won't always get things right. Some posts will probably be embarrassingly naive in retrospect. But that's fine — the log of confusion is just as valuable as the log of clarity.
+    </p>
+
+    <h2>An Invitation</h2>
+
+    <p>
+      If you're reading this: thank you. You didn't have to be here. I'll try to make it worth your time.
+    </p>
+
+  </article>
+
+  <!-- ── POST FOOTER ── -->
+  <div class="post-footer">
+    <a class="post-back-bottom" href="../blog.html">
+      <i class="fas fa-arrow-left"></i> Back to all posts
+    </a>
+  </div>
+
+  <footer>
+    <span class="footer-sig">© Talha Mahamud</span>
+    <div class="footer-icons">
+      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i class="fab fa-github"></i></a>
+      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i class="fas fa-newspaper"></i></a>
+      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i class="fab fa-orcid"></i></a>
+      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i class="fab fa-medium"></i></a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
