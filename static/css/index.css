@@ -3,7 +3,7 @@
 
 :root {
   --ink: #0f0f0f;
-  --paper: #F0EEE6;
+  --paper: #FCFCFC;
   --dim: #706e68;
   --rule: #d8d6cf;
 }
@@ -72,7 +72,7 @@ nav { display: flex; gap: 2em; align-items: center; }
 nav a {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68em;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dim);
@@ -231,4 +231,9 @@ footer {
   .hero-bio p { font-size: 1em; }
   .reading-row { flex-direction: column; gap: 10px; }
   footer { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+@media (max-width: 440px) {
+  nav { gap: 0.6em; }
+  nav a { font-size: 0.62em; }
 }

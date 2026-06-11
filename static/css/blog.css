@@ -1,0 +1,390 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: #0f0f0f;
+  color: #fafafa;
+}
+
+:root {
+  --ink: #0f0f0f;
+  --paper: #FCFCFC;
+  --dim: #706e68;
+  --dim2: #55534e;
+  --rule: #d8d6cf;
+}
+
+html {
+  font-size: 19px;
+}
+
+body {
+  font-family: 'EB Garamond', 'Noto Serif Bengali', Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 88px;
+  /* compensate for fixed topbar */
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Mirror the .page max-width (860px) + 40px side padding */
+  padding: 14px max(40px, calc((100vw - 860px) / 2 + 40px));
+  opacity: 0;
+  animation: appear 0.4s ease 0.05s forwards;
+}
+
+.brand {
+  text-decoration: none;
+  color: inherit;
+  line-height: 1.25;
+}
+
+.brand-mark {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 300;
+  font-size: 0.72em;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  display: block;
+}
+
+.brand-sub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.82em;
+  color: var(--dim);
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+nav a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--ink);
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 64px 0 36px;
+  opacity: 0;
+  animation: slideup 0.55s ease 0.15s forwards;
+}
+
+.page-header h1 {
+  font-size: clamp(2.6em, 6vw, 4.2em);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.page-header h1 em {
+  font-style: italic;
+}
+
+.page-header .sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7em;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* ── TAG FILTERS ── */
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: appear 0.5s ease 0.22s forwards;
+}
+
+.tag-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62em;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.tag-btn:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.tag-btn.active {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ── SEARCH ── */
+.search-row {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0;
+  animation: appear 0.5s ease 0.28s forwards;
+}
+
+.search-input {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78em;
+  font-weight: 300;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  outline: none;
+  padding: 6px 0;
+  width: 260px;
+  max-width: 100%;
+  transition: border-color 0.2s;
+}
+
+.search-input::placeholder {
+  color: var(--dim);
+}
+
+.search-input:focus {
+  border-color: var(--ink);
+}
+
+.no-results {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72em;
+  color: var(--dim);
+  margin-top: 32px;
+  display: none;
+}
+
+/* ── POST LIST ── */
+.post-list {
+  list-style: none;
+  opacity: 0;
+  animation: appear 0.55s ease 0.38s forwards;
+}
+
+.post-row {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  align-items: baseline;
+  column-gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left 0.18s;
+}
+
+.post-row:hover {
+  padding-left: 5px;
+}
+
+.post-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65em;
+  font-weight: 400;
+  color: var(--dim2);
+  white-space: nowrap;
+}
+
+.post-title {
+  font-size: 1.08em;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: opacity 0.15s;
+}
+
+.post-title:hover {
+  opacity: 0.5;
+}
+
+.post-title:visited {
+  color: var(--dim2);
+}
+
+.post-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.post-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58em;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border: 1px solid var(--rule);
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 60px;
+  padding: 24px 0 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  opacity: 0;
+  animation: appear 0.5s ease 0.55s forwards;
+}
+
+.footer-sig {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+
+.footer-icons {
+  display: flex;
+  gap: 0.9em;
+  flex-wrap: wrap;
+}
+
+.footer-icon {
+  font-size: 0.88em;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-icon:hover {
+  color: var(--ink);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  body {
+    padding-top: 72px;
+  }
+
+  .page {
+    padding: 0 22px;
+  }
+
+  .topbar {
+    padding: 12px 22px;
+  }
+
+  nav {
+    gap: 0.7em;
+    flex-wrap: nowrap;
+  }
+
+  .page-header {
+    padding: 44px 0 24px;
+  }
+
+  .page-header h1 {
+    font-size: 2.4em;
+  }
+
+  .post-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .post-date {
+    font-size: 0.6em;
+  }
+
+  .post-tags {
+    justify-content: flex-start;
+    margin-top: 6px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 440px) {
+  nav {
+    gap: 0.6em;
+  }
+
+  nav a {
+    font-size: 0.62em;
+  }
+}

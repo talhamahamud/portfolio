@@ -3,7 +3,7 @@
 
 :root {
   --ink: #0f0f0f;
-  --paper: #F0EEE6;
+  --paper: #FCFCFC;
   --dim: #706e68;
   --dim2: #55534e;
   --rule: #d8d6cf;
@@ -60,7 +60,7 @@ body {
 nav { display: flex; gap: 2em; align-items: center; }
 nav a {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68em; font-weight: 300;
+  font-size: 0.68em; font-weight: 400;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--dim); text-decoration: none;
   transition: color 0.15s;
