@@ -1,6 +1,6 @@
 ---
 title: "Beyond Consumption: The Habit of Sharing"
-date: "2025-06-11"
+date: "2026-06-11"
 tags: ["writing"]
 readTime: "5 min read"
 ---
