@@ -1,7 +1,7 @@
 ---
 title: "Beyond Consumption: The Habit of Sharing"
 date: "2026-06-11"
-tags: ["writing"]
+tags: ["Dairy"]
 readTime: "5 min read"
 ---
 ![Alternative text](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXNwZzV6NnBmZm44dXRpZzJkeGM3ZW4wdW1tdWI5dmMxc3gweWgwcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3wogjgqFfr2z6/giphy.gif)

@@ -1,7 +1,7 @@
 ---
 title: "I Built the Productivity Tool I Couldn't Find"
 date: "2026-06-16"
-tags: ["writing"]
+tags: ["Dairy"]
 readTime: "6 min read"
 ---
 ![Alternative text](https://i.ibb.co.com/tPkTmYdP/Screenshot-2026-06-16-233250.png)
