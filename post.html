@@ -90,22 +90,21 @@
       line-height: 1.25;
     }
 
-    .brand-mark {
-      font-family: 'IBM Plex Mono', monospace;
-      font-weight: 300;
-      font-size: 0.72em;
-      letter-spacing: 0.16em;
-      color: var(--ink);
+    .brand-logo {
+      height: 80px;
+      width: 80px;
       display: block;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .brand-sub {
-      font-family: 'EB Garamond', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: 0.82em;
-      color: var(--dim);
-      display: block;
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.25);
+      transform-origin: center;
     }
 
     nav {
@@ -574,8 +573,7 @@
 
     <div class="topbar">
       <a class="brand" href="index.html">
-        <span class="brand-mark">█▓░ TM ░▓█</span>
-        <span class="brand-sub">To the infinity and beyond</span>
+        <span class="brand-logo"><img src="static/images/signature-logo.jpeg" alt="TM signature logo" /></span>
       </a>
       <nav>
         <a href="index.html">Home</a>

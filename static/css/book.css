@@ -1,5 +1,15 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-::selection { background: #0f0f0f; color: #fafafa; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: #0f0f0f;
+  color: #fafafa;
+}
 
 :root {
   --ink: #0f0f0f;
@@ -9,7 +19,9 @@
   --rule: #d8d6cf;
 }
 
-html { font-size: 19px; }
+html {
+  font-size: 19px;
+}
 
 body {
   font-family: 'EB Garamond', 'Noto Serif Bengali', Georgia, serif;
@@ -17,7 +29,8 @@ body {
   color: var(--ink);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  padding-top: 88px; /* compensate for fixed topbar */
+  padding-top: 120px;
+  /* compensate for fixed topbar */
 }
 
 .page {
@@ -29,7 +42,9 @@ body {
 /* ── TOP BAR ── */
 .topbar {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 200;
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
@@ -37,35 +52,55 @@ body {
   justify-content: space-between;
   align-items: center;
   /* Mirror the .page max-width (860px) + 40px side padding */
-  padding: 14px max(40px, calc((100vw - 860px) / 2 + 40px));
+  padding: 10px max(40px, calc((100vw - 860px) / 2 + 40px));
   opacity: 0;
   animation: appear 0.4s ease 0.05s forwards;
 }
 
-.brand { text-decoration: none; color: inherit; line-height: 1.25; }
-.brand-mark {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 300; font-size: 0.72em;
-  letter-spacing: 0.16em; color: var(--ink);
-  display: block;
-}
-.brand-sub {
-  font-family: 'EB Garamond', serif;
-  font-style: italic; font-weight: 400;
-  font-size: 0.82em; color: var(--dim);
-  display: block;
-  white-space: nowrap;
+.brand {
+  text-decoration: none;
+  color: inherit;
+  line-height: 1.25;
 }
 
-nav { display: flex; gap: 2em; align-items: center; }
+.brand-logo {
+  height: 80px;
+  width: 80px;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.25);
+  transform-origin: center;
+}
+
+nav {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
 nav a {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68em; font-weight: 400;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--dim); text-decoration: none;
+  font-size: 0.68em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-decoration: none;
   transition: color 0.15s;
 }
-nav a:hover, nav a.active { color: var(--ink); }
+
+nav a:hover,
+nav a.active {
+  color: var(--ink);
+}
 
 /* ── PAGE HEADER ── */
 .page-header {
@@ -81,12 +116,17 @@ nav a:hover, nav a.active { color: var(--ink); }
   letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
-.page-header h1 em { font-style: italic; }
+
+.page-header h1 em {
+  font-style: italic;
+}
 
 .page-header .sub {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.7em; font-weight: 300;
-  letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--dim);
 }
 
@@ -100,7 +140,8 @@ nav a:hover, nav a.active { color: var(--ink); }
 
 .search-input {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.78em; font-weight: 300;
+  font-size: 0.78em;
+  font-weight: 300;
   color: var(--ink);
   background: transparent;
   border: none;
@@ -111,13 +152,21 @@ nav a:hover, nav a.active { color: var(--ink); }
   max-width: 100%;
   transition: border-color 0.2s;
 }
-.search-input::placeholder { color: var(--dim); }
-.search-input:focus { border-color: var(--ink); }
+
+.search-input::placeholder {
+  color: var(--dim);
+}
+
+.search-input:focus {
+  border-color: var(--ink);
+}
 
 .no-results {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72em; color: var(--dim);
-  margin-top: 32px; display: none;
+  font-size: 0.72em;
+  color: var(--dim);
+  margin-top: 32px;
+  display: none;
 }
 
 /* ── BOOK LIST ── */
@@ -136,11 +185,15 @@ nav a:hover, nav a.active { color: var(--ink); }
   border-bottom: 1px solid var(--rule);
   transition: padding-left 0.18s;
 }
-.book-row:hover { padding-left: 5px; }
+
+.book-row:hover {
+  padding-left: 5px;
+}
 
 .book-num {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.65em; font-weight: 300;
+  font-size: 0.65em;
+  font-weight: 300;
   color: var(--dim);
   text-align: right;
   padding-top: 3px;
@@ -156,19 +209,26 @@ nav a:hover, nav a.active { color: var(--ink); }
   margin-bottom: 4px;
   line-height: 1.3;
 }
-.book-title em { font-style: italic; }
+
+.book-title em {
+  font-style: italic;
+}
 
 .book-author {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68em; font-weight: 300;
+  font-size: 0.68em;
+  font-weight: 300;
   color: var(--dim);
 }
 
-.book-right { text-align: right; }
+.book-right {
+  text-align: right;
+}
 
 .book-cat {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.62em; font-weight: 300;
+  font-size: 0.62em;
+  font-weight: 300;
   color: var(--dim2);
   white-space: nowrap;
   display: block;
@@ -177,7 +237,8 @@ nav a:hover, nav a.active { color: var(--ink); }
 
 .book-date {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.62em; font-weight: 400;
+  font-size: 0.62em;
+  font-weight: 400;
   color: var(--dim2);
   white-space: nowrap;
   display: block;
@@ -199,23 +260,55 @@ footer {
 
 .footer-sig {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.65em; font-weight: 300;
-  letter-spacing: 0.1em; color: var(--dim);
+  font-size: 0.65em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--dim);
 }
 
-.footer-icons { display: flex; gap: 0.9em; flex-wrap: wrap; }
+.footer-icons {
+  display: flex;
+  gap: 0.9em;
+  flex-wrap: wrap;
+}
+
 .footer-icon {
-  font-size: 0.88em; color: var(--dim);
-  text-decoration: none; transition: color 0.15s;
+  font-size: 0.88em;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 0.15s;
 }
-.footer-icon:hover { color: var(--ink); }
 
-@keyframes appear  { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.footer-icon:hover {
+  color: var(--ink);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ── SCROLL TO TOP BUTTON ── */
 .scroll-top-btn {
-  display: none; /* shown only on mobile via media query */
+  display: none;
+  /* shown only on mobile via media query */
   position: fixed;
   bottom: 28px;
   right: 22px;
@@ -234,10 +327,12 @@ footer {
   transition: opacity 0.3s, transform 0.3s;
   box-shadow: none;
 }
+
 .scroll-top-btn.visible {
   opacity: 1;
   pointer-events: auto;
 }
+
 .scroll-top-btn:hover {
   color: var(--dim);
   background: transparent;
@@ -245,20 +340,46 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
-  body { padding-top: 72px; }
-  .page { padding: 0 22px; }
-  .topbar { padding: 12px 22px; }
-  nav { gap: 0.7em; flex-wrap: nowrap; }
-  .brand-sub { white-space: normal; }
-  .brand-sub-break { display: block; height: 0; }
-  .page-header { padding: 44px 0 24px; }
-  .page-header h1 { font-size: 2.4em; }
+  body {
+    padding-top: 72px;
+  }
+
+  .page {
+    padding: 0 22px;
+  }
+
+  .topbar {
+    padding: 12px 22px;
+  }
+
+  nav {
+    gap: 0.7em;
+    flex-wrap: nowrap;
+  }
+
+  .brand-sub {
+    white-space: normal;
+  }
+
+  .brand-sub-break {
+    display: block;
+    height: 0;
+  }
+
+  .page-header {
+    padding: 44px 0 24px;
+  }
+
+  .page-header h1 {
+    font-size: 2.4em;
+  }
 
   /* Stack: num | main | right moves below main */
   .book-row {
     grid-template-columns: 24px 1fr;
     grid-template-rows: auto auto;
   }
+
   .book-right {
     grid-column: 2 / 3;
     display: flex;
@@ -268,9 +389,21 @@ footer {
     text-align: left;
     margin-top: 4px;
   }
-  .book-cat { display: inline; margin-bottom: 0; }
-  .book-date { display: inline; }
-  footer { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+  .book-cat {
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  .book-date {
+    display: inline;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
 
   /* Show scroll-to-top button on mobile */
   .scroll-top-btn {
@@ -279,6 +412,11 @@ footer {
 }
 
 @media (max-width: 440px) {
-  nav { gap: 0.6em; }
-  nav a { font-size: 0.62em; }
+  nav {
+    gap: 0.6em;
+  }
+
+  nav a {
+    font-size: 0.62em;
+  }
 }
