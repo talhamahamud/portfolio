@@ -29,7 +29,7 @@ body {
   color: var(--ink);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  padding-top: 120px;
+  padding-top: 70px;
   /* compensate for fixed topbar */
 }
 
@@ -64,8 +64,8 @@ body {
 }
 
 .brand-logo {
-  height: 80px;
-  width: 80px;
+  height: 30px;
+  width: 30px;
   display: block;
   border-radius: 50%;
   overflow: hidden;
@@ -87,11 +87,9 @@ nav {
 }
 
 nav a {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68em;
+  font-family: inherit;
+  font-size: 1.1em;
   font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--dim);
   text-decoration: none;
   transition: color 0.15s;
@@ -333,7 +331,7 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   body {
-    padding-top: 72px;
+    padding-top: 60px;
   }
 
   .page {
@@ -384,6 +382,6 @@ footer {
   }
 
   nav a {
-    font-size: 0.62em;
+    font-size: 1em;
   }
 }
