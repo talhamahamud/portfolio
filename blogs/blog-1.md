@@ -26,5 +26,5 @@ Lastly, we believed that every good work has some positive impact on this univer
 >Suhayb ibn Sinan reported: The Messenger of Allah (peace and blessings be upon him) said, “The best of you are those who feed others.”
 [[Musnad Aḥmad - 23926]](https://www.abuaminaelias.com/dailyhadithonline/2016/07/18/best-sadaqah-feed-others/)
 
-## An Invitation
-<div align="left">If you're reading this: thank you for your attention. Please write me by clicking the button: &nbsp;<a href="mailto:talhamahamudd@gmail.com"><img height="18" src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a></div>
+<!-- ## An Invitation
+<div align="left">If you're reading this: thank you for your attention. Please write me by clicking the button: &nbsp;<a href="mailto:talhamahamudd@gmail.com"><img height="18" src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a></div> -->

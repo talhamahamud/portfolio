@@ -1,39 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading List — Talha Mahamud</title>
+  <meta name="description" content="Every book Talha Mahamud has read since 2023." />
   <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Noto+Serif+Bengali:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/book.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
 </head>
-<body>
-<div class="page">
 
-  <div class="topbar">
-    <a class="brand" href="index.html">
-      <span class="brand-logo"></span>
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Blog</a>
-      <a href="book.html" class="active">Read</a>
-    </nav>
-  </div>
+<body data-page="read">
+  <div class="bg-decor" aria-hidden="true"></div>
+  <header class="site-header"></header>
 
-  <div class="page-header">
-    <h1>Reading <em>List.</em></h1>
-    <p class="sub">Books I've explored — search by title, author, year or category</p>
-  </div>
+  <main class="wrap">
+    <section class="page-head">
+      <span class="eyebrow fade-up d1">Bookshelf</span>
+      <h1 class="display fade-up d2">Reading <em class="grad">List.</em></h1>
+      <p class="lede fade-up d3">Every book I've finished since 2023 — search by title, author, year or category.</p>
+    </section>
 
-  <div class="search-row">
-    <input type="text" class="search-input" id="searchBox" placeholder="Search…" />
-  </div>
-  <p class="no-results" id="noResults">Nothing found.</p>
+    <div class="stats fade-up d4">
+      <div class="card"><div class="stat-num grad" id="statTotal">–</div><div class="stat-cap">books finished</div></div>
+      <div class="card"><div class="stat-num" id="statYear">–</div><div class="stat-cap" id="statYearCap">this year</div></div>
+      <div class="card"><div class="stat-num" id="statCats">–</div><div class="stat-cap">categories</div></div>
+      <div class="card"><div class="stat-num" id="statAuthors">–</div><div class="stat-cap">authors</div></div>
+    </div>
 
+    <div class="toolbar fade-up d5">
+      <div class="chips" id="catFilters"></div>
+      <label class="search">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" id="searchBox" placeholder="Search books…" aria-label="Search books" />
+      </label>
+    </div>
+
+    <!--
+      To add a book: copy one book-row list item below, paste it at the top
+      of the list, and bump the number. Year dividers & counts are generated automatically.
+    -->
   <ul class="book-list" id="bookList">
 <!-- --------------start listing from here---------------- -->
     <li class="book-row">
@@ -344,7 +354,7 @@
         <span class="book-author" data-date="2024">Sayyid Abul A'la Maududi</span>
       </div>
       <div class="book-right">
-        <span class="book-cat">Islamic Phillosophy</span>
+        <span class="book-cat">Islamic Philosophy</span>
         <span class="book-date">2024</span>
       </div>
     </li>
@@ -356,7 +366,7 @@
         <span class="book-author" data-date="2024">Muhammad Kamaruzzaman</span>
       </div>
       <div class="book-right">
-        <span class="book-cat">Islamic Phillosophy</span>
+        <span class="book-cat">Islamic Philosophy</span>
         <span class="book-date">2024</span>
       </div>
     </li>
@@ -368,7 +378,7 @@
         <span class="book-author" data-date="2024">Shah Waliullah Dehlawi</span>
       </div>
       <div class="book-right">
-        <span class="book-cat">Islamic Phillosophy</span>
+        <span class="book-cat">Islamic Philosophy</span>
         <span class="book-date">2024</span>
       </div>
     </li>
@@ -1226,57 +1236,79 @@
     </li>
 
   </ul>
+    <p class="empty" id="noResults">Nothing found — try another word.</p>
+  </main>
 
-  <footer>
-    <span class="footer-sig">© Talha Mahamud</span>
-    <div class="footer-icons">
-      <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i class="fab fa-github"></i></a>
-      <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i class="fas fa-newspaper"></i></a>
-      <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
-      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i class="fab fa-orcid"></i></a>
-      <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i class="fab fa-medium"></i></a>
-    </div>
-  </footer>
+  <footer class="site-footer"></footer>
+  <button class="to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-</div>
+  <script src="static/js/site.js"></script>
+  <script>
+    const list = document.getElementById('bookList');
+    const rows = [...list.querySelectorAll('.book-row')];
+    const searchBox = document.getElementById('searchBox');
+    const noResults = document.getElementById('noResults');
+    const catBox = document.getElementById('catFilters');
+    const txt = (row, sel) => (row.querySelector(sel)?.textContent || '').trim();
 
-<!-- Scroll to top button (mobile only) -->
-<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
-  <i class="fas fa-chevron-up"></i>
-</button>
+    /* ── Stats ── */
+    const years = rows.map(r => txt(r, '.book-date'));
+    const latestYear = years.reduce((a, b) => (b > a ? b : a), '');
+    const cats = {};
+    rows.forEach(r => { const c = txt(r, '.book-cat'); cats[c] = (cats[c] || 0) + 1; });
+    document.getElementById('statTotal').textContent = rows.length;
+    document.getElementById('statYear').textContent = years.filter(y => y === latestYear).length;
+    document.getElementById('statYearCap').textContent = 'read in ' + latestYear;
+    document.getElementById('statCats').textContent = Object.keys(cats).length;
+    document.getElementById('statAuthors').textContent = new Set(rows.map(r => txt(r, '.book-author'))).size;
 
-<script>
-  const sb = document.getElementById("searchBox");
-  const bl = document.getElementById("bookList");
-  const nr = document.getElementById("noResults");
-  const rows = bl.querySelectorAll("li.book-row");
+    /* ── Category chips ── */
+    const sorted = Object.entries(cats).sort((a, b) => b[1] - a[1]);
+    catBox.innerHTML = `<button class="chip active" data-cat="all">All<span class="count">${rows.length}</span></button>` +
+      sorted.map(([c, n]) => `<button class="chip" data-cat="${c}">${c}<span class="count">${n}</span></button>`).join('');
+    let activeCat = 'all';
 
-  sb.addEventListener("input", function () {
-    const t = this.value.toLowerCase().trim();
-    let n = 0;
-    rows.forEach(r => {
-      const show = !t || r.textContent.toLowerCase().includes(t);
-      r.style.display = show ? "grid" : "none";
-      if (show) n++;
+    /* ── Year dividers ── */
+    const dividers = {};
+    rows.forEach((r, i) => {
+      const y = years[i];
+      if (dividers[y]) return;
+      const li = document.createElement('li');
+      li.className = 'year-divider';
+      li.innerHTML = `${y}<span></span>`;
+      list.insertBefore(li, r);
+      dividers[y] = li;
     });
-    nr.style.display = n === 0 && t ? "block" : "none";
-  });
 
-  /* ── Scroll-to-top button ── */
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 300) {
-      scrollBtn.classList.add('visible');
-    } else {
-      scrollBtn.classList.remove('visible');
+    function filter() {
+      const term = searchBox.value.toLowerCase().trim();
+      const perYear = {};
+      let visible = 0;
+      rows.forEach((r, i) => {
+        const show = (activeCat === 'all' || txt(r, '.book-cat') === activeCat) &&
+          (!term || r.textContent.toLowerCase().includes(term));
+        r.style.display = show ? '' : 'none';
+        if (show) { visible++; perYear[years[i]] = (perYear[years[i]] || 0) + 1; }
+      });
+      Object.entries(dividers).forEach(([y, li]) => {
+        const n = perYear[y] || 0;
+        li.style.display = n ? '' : 'none';
+        li.querySelector('span').textContent = n + (n === 1 ? ' book' : ' books');
+      });
+      noResults.style.display = visible ? 'none' : 'block';
     }
-  });
-  scrollBtn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
+
+    searchBox.addEventListener('input', filter);
+    catBox.addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      catBox.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeCat = chip.dataset.cat;
+      filter();
+    });
+    filter();
+  </script>
 </body>
+
 </html>

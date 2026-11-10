@@ -68,5 +68,5 @@ It was four days filled with exploration, friendship, unexpected twists, and mem
 
 Sometimes, the best journeys aren't the ones that go exactly according to plan—they're the ones that leave you with stories worth telling.
 
-## An Invitation
-<div align="left">If you're reading this: thank you for your attention. Please write me by clicking the button: &nbsp;<a href="mailto:talhamahamudd@gmail.com"><img height="18" src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a></div>
+<!-- ## An Invitation
+<div align="left">If you're reading this: thank you for your attention. Please write me by clicking the button: &nbsp;<a href="mailto:talhamahamudd@gmail.com"><img height="18" src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a></div> -->

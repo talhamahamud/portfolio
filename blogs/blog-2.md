@@ -50,5 +50,5 @@ Instead of relying on willpower alone, I now have a system that supports product
 Focus Flow was initially created for my own use, but its purpose extends beyond personal productivity. I hope it can eventually become a useful tool for students, researchers, developers, and anyone seeking a simpler way to stay focused in a world full of distractions.
 
 At its core, Focus Flow is more than a timer. It is an ongoing experiment in building better habits, reducing procrastination, and creating an environment where meaningful work can thrive.
-## An Invitation
-<div align="left">If you're reading this: thank you for your attention. Please write me by clicking the button: &nbsp;<a href="mailto:talhamahamudd@gmail.com"><img height="18" src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a></div>
+<!-- ## An Invitation
+<div align="left">If you're reading this: thank you for your attention. Please write me by clicking the button: &nbsp;<a href="mailto:talhamahamudd@gmail.com"><img height="18" src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a></div> -->

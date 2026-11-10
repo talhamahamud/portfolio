@@ -1,113 +1,189 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talha Mahamud</title>
+  <meta name="description" content="Talha Mahamud — physics graduate exploring spintronics, mathematics and machine learning." />
   <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Noto+Serif+Bengali:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="static/css/index.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
 </head>
 
-<body>
-  <div class="page">
-    <div class="topbar">
-      <a class="brand" href="index.html">
-        <span class="brand-logo"></span>
-      </a>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="blog.html">Blog</a>
-        <a href="book.html">Read</a>
-      </nav>
-    </div>
+<body data-page="home">
+  <div class="bg-decor" aria-hidden="true"></div>
+  <header class="site-header"></header>
 
-    <main class="hero">
-      <h1 class="hero-name">Talha<br /><em>Mahamud.</em></h1>
-      <p class="hero-role">Physics · Math · Machine Learning</p>
-      <div class="hero-divider"></div>
-      <div class="hero-bio">
-        <p>
-          A physics student with a deep passion for understanding the universe
-          at its most fundamental level — exploring theoretical physics,
-          mathematics, and machine learning.
-        </p>
-        <p>
-          Curiosity lies at the heart of who I am — a constant drive to question, to challenge, and to seek deeper
-          understanding. This spirit of inquiry extends far beyond science, shaping the way I live each day. I find joy
-          in reading widely, exploring new places, capturing fleeting moments through photography, and singing songs.
-          For me, learning is not confined to classrooms or laboratories; it is a
-          lifelong journey of exploration, discovery, and growth.
-        </p>
-      </div>
-    </main>
-
-    <div class="reading-section">
-      <span class="reading-label">Now Reading</span>
-
-      <div class="reading-list">
-
-        <div class="reading-content">
-          <a class="reading-book" href="https://en.wikipedia.org/wiki/Quran" target="_blank">
-            1. Al Quran
-          </a>
-          <div class="reading-meta">
-            <!-- <span><i class="fas fa-user"></i>&nbsp;Sayyid Abul A'la Maududi</span> -->
-            <span><i class="fas fa-tag"></i>&nbsp;Holy Book of Islam</span>
-            <span><i class="fas fa-calendar-alt"></i>&nbsp;June 25, 2026</span>
+  <main>
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <span class="eyebrow fade-up d1">Physics · Math · Machine Learning</span>
+          <h1 class="display fade-up d2">Talha<br /><em class="grad">Mahamud.</em></h1>
+          <p class="hero-bio fade-up d3">
+            A physics student with a deep passion for understanding the universe at its most fundamental level —
+            currently researching <strong>spintronics</strong> and exploring theoretical physics, mathematics and
+            machine learning.
+          </p>
+          <div class="hero-actions fade-up d4">
+            <a class="btn btn-primary" href="portfolio.html">View portfolio <i class="fas fa-arrow-right"></i></a>
+            <a class="btn" href="static/important/Talha_Mahamud_s_CV.pdf" download="Talha_Mahamud_CV.pdf"><i class="fas fa-arrow-down"></i> Download CV</a>
           </div>
         </div>
 
-        <div class="reading-content">
-          <!-- <a class="reading-book" href="https://en.wikipedia.org/wiki/Notes_from_Underground" target="_blank"> -->
-          2. Jemon Chilen Tini
-          </a>
-          <div class="reading-meta">
-            <span><i class="fas fa-user"></i>&nbsp;Sheikh Muhammad Saalih Al-Munajjid</span>
-            <span><i class="fas fa-tag"></i>&nbsp;Biography</span>
-            <span><i class="fas fa-calendar-alt"></i>&nbsp;June 25, 2026</span>
-          </div>
+        <div class="hero-art fade-up d3" aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <ellipse class="orbit-path" cx="200" cy="200" rx="190" ry="190" />
+            <ellipse class="orbit-path" cx="200" cy="200" rx="150" ry="150" stroke-dasharray="2 6" />
+            <circle class="star" cx="70" cy="70" r="1.6" />
+            <circle class="star" cx="330" cy="90" r="1.2" />
+            <circle class="star" cx="300" cy="330" r="1.8" />
+            <circle class="star" cx="90" cy="320" r="1.2" />
+            <circle class="star" cx="200" cy="40" r="1.4" />
+            <circle class="star" cx="360" cy="230" r="1.2" />
+            <circle class="star" cx="30" cy="190" r="1.4" />
+            <circle class="star" cx="210" cy="365" r="1.2" />
+            <path class="inf-ghost" d="M200 200C170 150 140 130 105 130 65 130 40 162 40 200s25 70 65 70c35 0 65-20 95-70s60-70 95-70c40 0 65 32 65 70s-25 70-65 70c-35 0-65-20-95-70z" />
+            <path class="inf-path" d="M200 200C170 150 140 130 105 130 65 130 40 162 40 200s25 70 65 70c35 0 65-20 95-70s60-70 95-70c40 0 65 32 65 70s-25 70-65 70c-35 0-65-20-95-70z" />
+            <circle class="particle" r="5">
+              <animateMotion dur="10s" repeatCount="indefinite" path="M200 200C170 150 140 130 105 130 65 130 40 162 40 200s25 70 65 70c35 0 65-20 95-70s60-70 95-70c40 0 65 32 65 70s-25 70-65 70c-35 0-65-20-95-70z" />
+            </circle>
+            <circle class="particle-2" r="3.5">
+              <animateMotion dur="10s" begin="-5s" repeatCount="indefinite" path="M200 200C170 150 140 130 105 130 65 130 40 162 40 200s25 70 65 70c35 0 65-20 95-70s60-70 95-70c40 0 65 32 65 70s-25 70-65 70c-35 0-65-20-95-70z" />
+            </circle>
+          </svg>
+          <span class="hero-caption">To infinity &amp; beyond</span>
         </div>
-        <div class="reading-content">
-          <a class="reading-book" href="https://en.wikipedia.org/wiki/Notes_from_Underground" target="_blank">
-            3. Notes from Underground
-          </a>
-          <div class="reading-meta">
-            <span><i class="fas fa-user"></i>&nbsp;Fyodor Dostoevsky</span>
-            <span><i class="fas fa-tag"></i>&nbsp;Fiction</span>
-            <span><i class="fas fa-calendar-alt"></i>&nbsp;June 11, 2026</span>
-          </div>
+      </div>
+    </section>
+
+    <!-- ── NOW ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>What I'm up to <em>now</em></h2>
         </div>
 
-      </div>
-    </div>
+        <div class="bento">
+          <article class="card card-hover b-research reveal">
+            <div class="card-label"><span class="pulse"></span> Current research</div>
+            <h3>Altermagnet spin reversal mechanism</h3>
+            <p>Studying spin-torque and exchange-driven spin dynamics of altermagnets at Khulna University — exploring
+              spin-based electronics for faster, more energy-efficient memory and computing.</p>
+            <div class="links"><a href="portfolio.html#research">Read more <i class="fas fa-arrow-right"></i></a></div>
+          </article>
 
-    <footer>
-      <span class="footer-sig">© Talha Mahamud</span>
-      <div class="footer-icons">
-        <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i
-            class="fab fa-youtube"></i></a>
-        <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i
-            class="fab fa-github"></i></a>
-        <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i
-            class="fas fa-newspaper"></i></a>
-        <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"
-          class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i
-            class="fab fa-orcid"></i></a>
-        <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i
-            class="fab fa-medium"></i></a>
+          <a class="card card-hover b-stat reveal" href="book.html" style="text-decoration:none">
+            <div class="card-label"><i class="fas fa-book-open"></i> Library</div>
+            <div>
+              <div class="stat-num grad" id="bookCount">99</div>
+              <div class="stat-cap">books read since 2023 →</div>
+            </div>
+          </a>
+
+          <article class="card b-reading reveal">
+            <div class="card-label"><i class="fas fa-bookmark"></i> Now reading</div>
+            <ul class="mini-list">
+              <li>
+                <a href="https://en.wikipedia.org/wiki/Quran" target="_blank" rel="noopener">
+                  <div>
+                    <div class="t">Al Quran</div>
+                    <div class="m">Holy Book of Islam</div>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+              <li>
+                <div class="mini-item">
+                  <div>
+                    <div class="t">Jemon Chilen Tini</div>
+                    <div class="m">Sheikh Muhammad Saalih Al-Munajjid · Biography</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="https://en.wikipedia.org/wiki/Notes_from_Underground" target="_blank" rel="noopener">
+                  <div>
+                    <div class="t">Notes from Underground</div>
+                    <div class="m">Fyodor Dostoevsky · Fiction</div>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card b-writing reveal">
+            <div class="card-label" style="justify-content:space-between">
+              <span><i class="fas fa-pen-nib"></i>&nbsp; Latest writing</span>
+              <a class="link-arrow" href="blog.html" style="font-family:var(--sans);text-transform:none;letter-spacing:0">All posts <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <ul class="mini-list">
+              <li>
+                <a href="post.html?id=blog-4">
+                  <div>
+                    <div class="t">One Day, I Will Become a Physicist</div>
+                    <div class="m">Jun 18, 2026</div>
+                  </div>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </li>
+              <li>
+                <a href="post.html?id=blog-3">
+                  <div>
+                    <div class="t">Four Days in Bogura: Trains, Tea, Ancient Ruins…</div>
+                    <div class="m">Jun 18, 2026</div>
+                  </div>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </li>
+              <li>
+                <a href="post.html?id=blog-2">
+                  <div>
+                    <div class="t">I Built the Productivity Tool I Couldn't Find</div>
+                    <div class="m">Jun 16, 2026</div>
+                  </div>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </article>
+        </div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card reveal" style="padding:clamp(28px,5vw,56px)">
+          <span class="eyebrow">Beyond the lab</span>
+          <p style="font-family:var(--serif);font-size:clamp(24px,3.2vw,34px);line-height:1.3;letter-spacing:-0.01em;margin-top:20px;max-width:860px">
+            Curiosity lies at the heart of who I am — a constant drive to question, to challenge, and to seek deeper
+            understanding. I find joy in <em class="grad">reading widely</em>, exploring new places, capturing fleeting
+            moments through photography, and singing songs. For me, learning is a lifelong journey of exploration,
+            discovery and growth.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script src="static/js/site.js"></script>
+  <script>
+    // Keep the "books read" count in sync with the reading list.
+    fetch('book.html').then(r => r.ok ? r.text() : Promise.reject())
+      .then(html => {
+        const n = (html.match(/class="book-row"/g) || []).length;
+        if (n) document.getElementById('bookCount').textContent = n;
+      }).catch(() => { });
+  </script>
 </body>
 
 </html>

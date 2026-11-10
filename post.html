@@ -1,770 +1,162 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog Post — Talha Mahamud</title>
   <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Noto+Serif+Bengali:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
 
-  <!-- Highlight.js for Syntax Highlighting -->
+  <!-- Syntax highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
-  <!-- KaTeX for Math Equations -->
+  <!-- KaTeX for math -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
-  <!-- Marked.js for Markdown Parsing -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <!-- Bundled copy of /blogs/*.md, used when the page is opened as a local file
+       (browsers block fetch() on file://). Regenerate with: python build-posts.py -->
+  <script src="blogs/posts.js"></script>
 
-    ::selection {
-      background: #0f0f0f;
-      color: #fafafa;
-    }
-
-    :root {
-      --ink: #0f0f0f;
-      --paper: #FCFCFC;
-      --dim: #706e68;
-      --dim2: #55534e;
-      --rule: #d8d6cf;
-      --code-bg: #e6e4dc;
-    }
-
-    html {
-      font-size: 19px;
-    }
-
-    body {
-      font-family: 'EB Garamond', 'Noto Serif Bengali', Georgia, serif;
-      background: var(--paper);
-      color: var(--ink);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      padding-top: 88px;
-      /* compensate for fixed topbar */
-    }
-
-    .page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    /* ── TOP BAR ── */
-    .topbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      background: var(--paper);
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      /* Mirror the .page max-width (720px) + 40px side padding */
-      padding: 14px max(40px, calc((100vw - 720px) / 2 + 40px));
-      opacity: 0;
-      animation: appear 0.4s ease 0.05s forwards;
-    }
-
-    .brand {
-      text-decoration: none;
-      color: inherit;
-      line-height: 1.25;
-    }
-
-    .brand-logo {
-      height: 80px;
-      width: 80px;
-      display: block;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.25);
-      transform-origin: center;
-    }
-
-    nav {
-      display: flex;
-      gap: 2em;
-      align-items: center;
-    }
-
-    nav a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68em;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--ink);
-    }
-
-    /* ── POST HEADER ── */
-    .post-header {
-      padding: 64px 0 40px;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: slideup 0.6s ease 0.15s forwards;
-    }
-
-    .post-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65em;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
-      text-decoration: none;
-      margin-bottom: 28px;
-      transition: color 0.15s;
-    }
-
-    .post-back:hover {
-      color: var(--ink);
-    }
-
-    .post-back i {
-      font-size: 0.85em;
-    }
-
-    .post-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .post-tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.6em;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--dim);
-      border: 1px solid var(--rule);
-      padding: 2px 9px;
-    }
-
-    .post-header h1 {
-      font-size: clamp(1.9em, 5vw, 2.8em);
-      font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 20px;
-    }
-
-    .post-header h1 em {
-      font-style: italic;
-    }
-
-    .post-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .post-meta-item {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68em;
-      font-weight: 300;
-      color: var(--dim);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* ── POST BODY ── */
-    .post-body {
-      opacity: 0;
-      animation: appear 0.6s ease 0.3s forwards;
-    }
-
-    .post-body p {
-      font-size: 1.1em;
-      line-height: 1.85;
-      color: #2a2a2a;
-      margin-bottom: 1.4em;
-    }
-
-    .post-body h2 {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.55em;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      margin: 2.2em 0 0.7em;
-      color: var(--ink);
-    }
-
-    .post-body h3 {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.25em;
-      font-weight: 500;
-      margin: 1.8em 0 0.5em;
-      color: var(--ink);
-    }
-
-    .post-body a {
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1px;
-      transition: opacity 0.15s;
-    }
-
-    .post-body a:hover {
-      opacity: 0.5;
-    }
-
-    .post-body strong {
-      font-weight: 500;
-    }
-
-    .post-body em {
-      font-style: italic;
-    }
-
-    /* Blockquote */
-    .post-body blockquote {
-      border-left: 2px solid var(--ink);
-      padding: 2px 0 2px 22px;
-      margin: 1.8em 0;
-      font-style: italic;
-      color: var(--dim2);
-    }
-
-    .post-body blockquote p {
-      color: var(--dim2);
-      margin-bottom: 0;
-    }
-
-    /* Code inline */
-    .post-body code {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82em;
-      font-weight: 300;
-      background: var(--code-bg);
-      border: 1px solid var(--rule);
-      padding: 2px 6px;
-      color: var(--ink);
-    }
-
-    /* Code block */
-    .post-body pre {
-      background: var(--code-bg);
-      border: 1px solid var(--rule);
-      padding: 20px 22px;
-      overflow-x: auto;
-      margin: 1.8em 0;
-    }
-
-    .post-body pre code {
-      background: transparent;
-      border: none;
-      padding: 0;
-      font-size: 0.85em;
-      line-height: 1.65;
-      display: block;
-    }
-
-    /* Images */
-    .post-body img {
-      max-width: 100%;
-      display: block;
-      margin: 2em auto;
-    }
-
-    /* Inline badge/shield images inside links — don't treat as block */
-    .post-body a img {
-      display: inline;
-      margin: 0;
-      vertical-align: middle;
-    }
-
-    /* Figure + caption */
-    .post-body figure {
-      margin: 2.2em 0;
-      text-align: center;
-    }
-
-    .post-body figcaption {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68em;
-      font-weight: 300;
-      color: var(--dim);
-      margin-top: 10px;
-      font-style: normal;
-    }
-
-    /* Lists */
-    .post-body ul,
-    .post-body ol {
-      margin: 0 0 1.4em 0;
-      padding-left: 0;
-      list-style: none;
-    }
-
-    .post-body ul li,
-    .post-body ol li {
-      font-size: 1.1em;
-      line-height: 1.8;
-      color: #2a2a2a;
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 0.3em;
-    }
-
-    .post-body ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--dim);
-    }
-
-    .post-body ol {
-      counter-reset: ol-counter;
-    }
-
-    .post-body ol li {
-      counter-increment: ol-counter;
-    }
-
-    .post-body ol li::before {
-      content: counter(ol-counter) '.';
-      position: absolute;
-      left: 0;
-      color: var(--dim);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75em;
-      font-weight: 300;
-    }
-
-    /* Tables */
-    .post-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2em 0;
-      font-size: 0.92em;
-    }
-
-    .post-body th {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72em;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-align: left;
-      padding: 10px 14px;
-      border-bottom: 2px solid var(--ink);
-      color: var(--ink);
-    }
-
-    .post-body td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--rule);
-      vertical-align: top;
-      line-height: 1.6;
-    }
-
-    .post-body tr:hover td {
-      background: #f5f5f5;
-    }
-
-    /* Horizontal rule */
-    .post-body hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 2.5em 0;
-    }
-
-    /* Math (KaTeX/MathJax friendly) */
-    .post-body .math-block {
-      overflow-x: auto;
-      margin: 1.8em 0;
-      text-align: center;
-    }
-
-    /* ── POST FOOTER ── */
-    .post-footer {
-      margin-top: 64px;
-      padding-top: 32px;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      opacity: 0;
-      animation: appear 0.5s ease 0.5s forwards;
-    }
-
-    .post-back-bottom {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.66em;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .post-back-bottom:hover {
-      color: var(--ink);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--rule);
-      margin-top: 40px;
-      padding: 24px 0 36px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      opacity: 0;
-      animation: appear 0.5s ease 0.6s forwards;
-    }
-
-    .footer-sig {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65em;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      color: var(--dim);
-    }
-
-    .footer-icons {
-      display: flex;
-      gap: 0.9em;
-      flex-wrap: wrap;
-    }
-
-    .footer-icon {
-      font-size: 0.88em;
-      color: var(--dim);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .footer-icon:hover {
-      color: var(--ink);
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideup {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      body {
-        padding-top: 72px;
-      }
-
-      .page {
-        padding: 0 22px;
-      }
-
-      .topbar {
-        padding: 12px 22px;
-      }
-
-      nav {
-        gap: 0.7em;
-        flex-wrap: nowrap;
-      }
-
-      .post-header {
-        padding: 40px 0 28px;
-        margin-bottom: 32px;
-      }
-
-      .post-header h1 {
-        font-size: 1.9em;
-      }
-
-      .post-body p,
-      .post-body li {
-        font-size: 1em;
-      }
-
-      .post-footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-    }
-
-    @media (max-width: 440px) {
-      nav {
-        gap: 0.6em;
-      }
-
-      nav a {
-        font-size: 0.62em;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="static/css/style.css" />
 </head>
 
-<body>
-  <div class="page">
+<body data-page="blog">
+  <div class="progress" id="progress"></div>
+  <div class="bg-decor" aria-hidden="true"></div>
+  <header class="site-header"></header>
 
-    <div class="topbar">
-      <a class="brand" href="index.html">
-        <span class="brand-logo"></span>
-      </a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="book.html">Read</a>
-      </nav>
-    </div>
-
-    <!-- ── POST HEADER ── -->
-    <div class="post-header">
-      <!-- <a class="post-back" href="blog.html">
-        <i class="fas fa-arrow-left"></i> All Posts
-      </a> -->
-
-      <div class="post-tags" id="postTags">
-        <!-- Dynamic Tags -->
+  <main class="wrap wrap-narrow">
+    <header class="article-head fade-up d1">
+      <a class="back" href="blog.html"><i class="fas fa-arrow-left"></i> All posts</a>
+      <div class="tags" id="postTags"></div>
+      <h1 id="postTitle">Loading…</h1>
+      <div class="meta">
+        <span id="postDate"><i class="far fa-calendar"></i> —</span>
+        <span><i class="far fa-user"></i> Talha Mahamud</span>
+        <span id="postReadTime"><i class="far fa-clock"></i> —</span>
       </div>
+    </header>
 
-      <h1 id="postTitle">Loading Post...</h1>
+    <div class="article-rule"></div>
 
-      <div class="post-meta">
-        <span class="post-meta-item" id="postDate">
-          <i class="fas fa-calendar-alt"></i> Loading...
-        </span>
-        <span class="post-meta-item">
-          <i class="fas fa-user"></i> Talha Mahamud
-        </span>
-        <span class="post-meta-item" id="postReadTime">
-          <i class="fas fa-clock"></i> Loading...
-        </span>
-      </div>
-    </div>
-
-    <!-- ── POST BODY ── -->
-    <article class="post-body" id="postBody">
-      <p>Loading post content...</p>
+    <article class="prose fade-up d2" id="postBody">
+      <div class="skeleton"><span></span><span></span><span></span><span></span><span></span><span></span></div>
     </article>
 
-    <!-- ── POST FOOTER ── -->
-    <div class="post-footer">
-      <a class="post-back-bottom" href="blog.html">
-        <i class="fas fa-arrow-left"></i> Back to all posts
-      </a>
-    </div>
-
-    <footer>
-      <span class="footer-sig">© Talha Mahamud</span>
-      <div class="footer-icons">
-        <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i
-            class="fab fa-youtube"></i></a>
-        <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i
-            class="fab fa-github"></i></a>
-        <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i
-            class="fas fa-newspaper"></i></a>
-        <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"
-          class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i
-            class="fab fa-orcid"></i></a>
-        <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i
-            class="fab fa-medium"></i></a>
+    <div class="article-foot reveal">
+      <p>Thanks for reading. <em>Thoughts?</em></p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="blog.html"><i class="fas fa-arrow-left"></i> More posts</a>
+        <a class="btn btn-primary" href="mailto:talhamahamudd@gmail.com"><i class="fas fa-envelope"></i> Write to me</a>
       </div>
-    </footer>
+    </div>
+  </main>
 
-  </div>
+  <footer class="site-footer"></footer>
 
+  <script src="static/js/site.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Get post ID from URL parameter
-      const urlParams = new URLSearchParams(window.location.search);
-      const postId = urlParams.get('id');
+    /* ── Reading progress ── */
+    const bar = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      bar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+    }, { passive: true });
 
-      if (!postId) {
-        window.location.href = 'blog.html';
-        return;
-      }
+    /* ── Load markdown post: post.html?id=<file name in /blogs without .md> ── */
+    const postId = new URLSearchParams(location.search).get('id');
+    if (!postId) location.href = 'blog.html';
+    const cleanId = (postId || '').replace(/[^a-zA-Z0-9\-_]/g, '');
+    const body = document.getElementById('postBody');
 
-      // Sanitize file path prefix to ensure it resolves inside 'blogs/' directory
-      const cleanId = postId.replace(/[^a-zA-Z0-9\-_]/g, '');
+    function parseFrontMatter(text) {
+      const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+      const meta = {};
+      if (!match) return { meta, content: text };
+      const unquote = v => ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) ? v.slice(1, -1) : v;
+      match[1].split('\n').forEach(line => {
+        const i = line.indexOf(':');
+        if (i === -1) return;
+        const key = line.slice(0, i).trim();
+        let value = unquote(line.slice(i + 1).trim());
+        if (value.startsWith('[') && value.endsWith(']')) {
+          value = value.slice(1, -1).split(',').map(s => unquote(s.trim())).filter(Boolean);
+        }
+        meta[key] = value;
+      });
+      return { meta, content: text.slice(match[0].length) };
+    }
 
-      // 2. Fetch the markdown file
-      fetch(`blogs/${cleanId}.md`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Post not found');
-          }
-          return response.text();
-        })
-        .then(markdownText => {
-          // 3. Parse Front Matter
-          const frontMatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/;
-          const match = markdownText.match(frontMatterRegex);
+    function formatDate(s) {
+      const d = new Date(s);
+      return isNaN(d) ? s : d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
 
-          let metadata = {};
-          let bodyContent = markdownText;
+    // Prefer the live .md file; fall back to the bundled copy (blogs/posts.js)
+    // when fetch is unavailable, e.g. when the page is opened via file://.
+    function loadPost(id) {
+      const bundled = () => {
+        if (window.POSTS && typeof window.POSTS[id] === 'string') return window.POSTS[id];
+        throw new Error('Post not found: ' + id);
+      };
+      if (location.protocol === 'file:') return Promise.resolve().then(bundled);
+      return fetch(`blogs/${id}.md`)
+        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .catch(bundled);
+    }
 
-          if (match) {
-            const yamlBlock = match[1];
-            bodyContent = markdownText.slice(match[0].length);
+    loadPost(cleanId)
+      .then(text => {
+        const { meta, content } = parseFrontMatter(text);
+        const title = meta.title || cleanId.replace(/-/g, ' ');
+        document.title = `${title} — Talha Mahamud`;
+        document.getElementById('postTitle').textContent = title;
 
-            yamlBlock.split('\n').forEach(line => {
-              const index = line.indexOf(':');
-              if (index !== -1) {
-                const key = line.slice(0, index).trim();
-                let value = line.slice(index + 1).trim();
+        if (meta.date) document.getElementById('postDate').innerHTML = `<i class="far fa-calendar"></i> ${formatDate(meta.date)}`;
 
-                if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-                  value = value.slice(1, -1);
-                }
+        const words = content.trim().split(/\s+/).length;
+        const readTime = meta.readTime || `${Math.max(1, Math.round(words / 220))} min read`;
+        document.getElementById('postReadTime').innerHTML = `<i class="far fa-clock"></i> ${readTime}`;
 
-                if (value.startsWith('[') && value.endsWith(']')) {
-                  value = value.slice(1, -1).split(',').map(item => {
-                    let val = item.trim();
-                    if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-                      val = val.slice(1, -1);
-                    }
-                    return val;
-                  });
-                }
-
-                metadata[key] = value;
-              }
-            });
-          }
-
-          // 4. Update elements
-          const title = metadata.title || cleanId.replace(/-/g, ' ');
-          document.title = `${title} — Talha Mahamud`;
-
-          const titleEl = document.getElementById('postTitle');
-          if (titleEl) titleEl.innerText = title;
-
-          const dateEl = document.getElementById('postDate');
-          if (dateEl && metadata.date) {
-            dateEl.innerHTML = `<i class="fas fa-calendar-alt"></i> ${metadata.date}`;
-          }
-
-          const readTimeEl = document.getElementById('postReadTime');
-          if (readTimeEl && metadata.readTime) {
-            readTimeEl.innerHTML = `<i class="fas fa-clock"></i> ${metadata.readTime}`;
-          }
-
-          const tagsContainer = document.getElementById('postTags');
-          if (tagsContainer && metadata.tags) {
-            tagsContainer.innerHTML = '';
-            const tags = Array.isArray(metadata.tags) ? metadata.tags : [metadata.tags];
-            tags.forEach(tag => {
-              const span = document.createElement('span');
-              span.className = 'post-tag';
-              span.innerText = tag;
-              tagsContainer.appendChild(span);
-            });
-          }
-
-          // 5. Render markdown using Marked
-          const postBodyEl = document.getElementById('postBody');
-          if (postBodyEl) {
-            postBodyEl.innerHTML = marked.parse(bodyContent);
-
-            // Apply Syntax Highlighting (Highlight.js)
-            if (window.hljs) {
-              postBodyEl.querySelectorAll('pre code').forEach((block) => {
-                hljs.highlightElement(block);
-              });
-            }
-
-            // Apply KaTeX Math Rendering
-            if (window.renderMathInElement) {
-              renderMathInElement(postBodyEl, {
-                delimiters: [
-                  { left: '$$', right: '$$', display: true },
-                  { left: '$', right: '$', display: false },
-                  { left: '\\(', right: '\\)', display: false },
-                  { left: '\\[', right: '\\]', display: true }
-                ],
-                throwOnError: false
-              });
-            }
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          const postBodyEl = document.getElementById('postBody');
-          if (postBodyEl) {
-            postBodyEl.innerHTML = `<p>Error: Could not load this blog post. Make sure the file exists under the blogs folder.</p><a href="blog.html">Return to Blog</a>`;
-          }
+        const tagsEl = document.getElementById('postTags');
+        (Array.isArray(meta.tags) ? meta.tags : meta.tags ? [meta.tags] : []).forEach(tag => {
+          const s = document.createElement('span');
+          s.className = 'pill';
+          s.textContent = tag;
+          tagsEl.appendChild(s);
         });
-    });
+
+        body.innerHTML = marked.parse(content);
+        body.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+        body.querySelectorAll('img').forEach(img => { img.loading = 'lazy'; });
+        if (window.hljs) body.querySelectorAll('pre code').forEach(b => hljs.highlightElement(b));
+        if (window.renderMathInElement) {
+          renderMathInElement(body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false },
+              { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+          });
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('postTitle').textContent = 'Post not found';
+        body.innerHTML = '<p>Sorry — this post could not be loaded. <a href="blog.html">Back to the blog</a>.</p>';
+      });
   </script>
 </body>
 

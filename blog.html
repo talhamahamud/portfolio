@@ -1,155 +1,129 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — Talha Mahamud</title>
+  <meta name="description" content="Writing by Talha Mahamud on physics, math, machine learning, philosophy and everyday life." />
   <link rel="icon" type="image/png" href="static/images/android-chrome-512x512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Noto+Serif+Bengali:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="static/css/blog.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
 </head>
 
-<body>
-  <div class="page">
+<body data-page="blog">
+  <div class="bg-decor" aria-hidden="true"></div>
+  <header class="site-header"></header>
 
-    <div class="topbar">
-      <a class="brand" href="index.html">
-        <span class="brand-logo"></span>
-      </a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="book.html">Read</a>
-      </nav>
+  <main class="wrap">
+    <section class="page-head">
+      <span class="eyebrow fade-up d1">Notes &amp; essays</span>
+      <h1 class="display fade-up d2">The <em class="grad">Blog.</em></h1>
+      <p class="lede fade-up d3">Thoughts on physics, math, machine learning, philosophy — and the small moments in between.</p>
+    </section>
+
+    <div class="toolbar fade-up d4">
+      <div class="chips" id="tagFilters">
+        <button class="chip active" data-tag="all">All</button>
+        <button class="chip" data-tag="physics">Physics</button>
+        <button class="chip" data-tag="math">Math</button>
+        <button class="chip" data-tag="ml">ML</button>
+        <button class="chip" data-tag="philosophy">Philosophy</button>
+        <button class="chip" data-tag="dairy">Dairy</button>
+      </div>
+      <label class="search">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" id="searchBox" placeholder="Search posts…" aria-label="Search posts" />
+      </label>
     </div>
 
-    <div class="page-header">
-      <h1>Blog <em>Posts.</em></h1>
-      <!-- <p class="sub">Thoughts on Physics, Math, ML &amp; Philosophy</p> -->
-    </div>
+    <ul class="post-list fade-up d5" id="postList">
+      <!--
+        To add a post: put your markdown file in /blogs (e.g. blogs/my-post.md),
+        then copy one <li> below, set href="post.html?id=my-post", the date, title and data-tags.
+      -->
 
-    <!-- TAG FILTERS -->
-    <div class="tag-filters" id="tagFilters">
-      <button class="tag-btn active" data-tag="all">All</button>
-      <button class="tag-btn" data-tag="physics">Physics</button>
-      <button class="tag-btn" data-tag="math">Math</button>
-      <button class="tag-btn" data-tag="ml">ML</button>
-      <button class="tag-btn" data-tag="philosophy">Philosophy</button>
-      <button class="tag-btn" data-tag="dairy">Dairy</button>
-    </div>
+      <!-- -----------blog-4----------- -->
+      <!-- <li class="post-row" data-tags="dairy">
+        <a href="post.html?id=blog-4">
+          <span class="post-date">2026-06-18</span>
+          <span class="post-title">One Day, I Will Become a Physicist</span>
+          <span class="post-side"><span class="post-date-m">2026-06-18</span><span class="pill">Dairy</span><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </li> -->
 
-    <!-- SEARCH -->
-    <div class="search-row">
-      <input type="text" class="search-input" id="searchBox" placeholder="Search posts…" />
-    </div>
-    <p class="no-results" id="noResults">Nothing found.</p>
-
-    <!-- POST LIST -->
-    <ul class="post-list" id="postList">
-
-      <!-- to add post on this page, use id=post.md name, give your title and tags -->
       <!-- -----------blog-3----------- -->
       <li class="post-row" data-tags="dairy">
-        <span class="post-date">2026-06-18</span>
-        <a class="post-title" href="post.html?id=blog-3">Four Days in Bogura: Trains, Tea, Ancient Ruins, and an Unforgettable Wrong Turn</a>
-        <div class="post-tags">
-          <span class="post-tag">Dairy</span>
-        </div>
-      </li>
-      <!-- -----------blog-2----------- -->
-      <li class="post-row" data-tags="dairy">
-        <span class="post-date">2026-06-16</span>
-        <a class="post-title" href="post.html?id=blog-2">I Built the Productivity Tool I Couldn't Find</a>
-        <div class="post-tags">
-          <span class="post-tag">Dairy</span>
-        </div>
-      </li>
-      <!-- -----------blog-1----------- -->
-      <li class="post-row" data-tags="dairy">
-        <span class="post-date">2026-06-11</span>
-        <a class="post-title" href="post.html?id=blog-1">Beyond Consumption: The Habit of Sharing</a>
-        <div class="post-tags">
-          <span class="post-tag">Dairy</span>
-        </div>
+        <a href="post.html?id=blog-3">
+          <span class="post-date">2026-06-18</span>
+          <span class="post-title">Four Days in Bogura: Trains, Tea, Ancient Ruins, and an Unforgettable Wrong Turn</span>
+          <span class="post-side"><span class="post-date-m">2026-06-18</span><span class="pill">Dairy</span><i class="fas fa-arrow-right"></i></span>
+        </a>
       </li>
 
+      <!-- -----------blog-2----------- -->
+      <li class="post-row" data-tags="dairy">
+        <a href="post.html?id=blog-2">
+          <span class="post-date">2026-06-16</span>
+          <span class="post-title">I Built the Productivity Tool I Couldn't Find</span>
+          <span class="post-side"><span class="post-date-m">2026-06-16</span><span class="pill">Dairy</span><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </li>
+
+      <!-- -----------blog-1----------- -->
+      <li class="post-row" data-tags="dairy">
+        <a href="post.html?id=blog-1">
+          <span class="post-date">2026-06-11</span>
+          <span class="post-title">Beyond Consumption: The Habit of Sharing</span>
+          <span class="post-side"><span class="post-date-m">2026-06-11</span><span class="pill">Dairy</span><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </li>
 
       <!-- -----------blog-0----------- -->
       <li class="post-row" data-tags="dairy">
-        <span class="post-date">2025-12-24</span>
-        <a class="post-title" href="post.html?id=why-i-write">This Is Why I Started Writing!</a>
-        <div class="post-tags">
-          <span class="post-tag">Dairy</span>
-        </div>
+        <a href="post.html?id=why-i-write">
+          <span class="post-date">2025-12-24</span>
+          <span class="post-title">This Is Why I Started Writing!</span>
+          <span class="post-side"><span class="post-date-m">2025-12-24</span><span class="pill">Dairy</span><i class="fas fa-arrow-right"></i></span>
+        </a>
       </li>
-
-
     </ul>
+    <p class="empty" id="noResults">Nothing found — try another word.</p>
+  </main>
 
-    <footer>
-      <span class="footer-sig">© Talha Mahamud</span>
-      <div class="footer-icons">
-        <a href="https://www.youtube.com/@talhamahamud3176" target="_blank" title="YouTube" class="footer-icon"><i
-            class="fab fa-youtube"></i></a>
-        <a href="https://www.linkedin.com/in/talhamahamud/" target="_blank" title="LinkedIn" class="footer-icon"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/TalhaMahamud" target="_blank" title="GitHub" class="footer-icon"><i
-            class="fab fa-github"></i></a>
-        <a href="https://talhamahamud.substack.com/" target="_blank" title="Substack" class="footer-icon"><i
-            class="fas fa-newspaper"></i></a>
-        <a href="mailto:talhamahamudd@gmail.com" title="Gmail" class="footer-icon"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"
-          class="footer-icon"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://orcid.org/0009-0002-7103-8420" target="_blank" title="ORCID" class="footer-icon"><i
-            class="fab fa-orcid"></i></a>
-        <a href="https://medium.com/@iamtalhamahamud" target="_blank" title="Medium" class="footer-icon"><i
-            class="fab fa-medium"></i></a>
-      </div>
-    </footer>
+  <footer class="site-footer"></footer>
 
-  </div>
-
+  <script src="static/js/site.js"></script>
   <script>
     const searchBox = document.getElementById('searchBox');
-    const postList = document.getElementById('postList');
     const noResults = document.getElementById('noResults');
-    const tagBtns = document.querySelectorAll('.tag-btn');
-    const allRows = postList.querySelectorAll('li.post-row');
-
+    const chips = document.querySelectorAll('#tagFilters .chip');
+    const rows = document.querySelectorAll('#postList .post-row');
     let activeTag = 'all';
 
     function filter() {
       const term = searchBox.value.toLowerCase().trim();
       let visible = 0;
-
-      allRows.forEach(row => {
-        const titleMatch = row.querySelector('.post-title').textContent.toLowerCase().includes(term);
-        const rowTags = row.dataset.tags || '';
-        const tagMatch = activeTag === 'all' || rowTags.includes(activeTag);
-        const show = titleMatch && tagMatch;
-
-        row.style.display = show ? 'grid' : 'none';
+      rows.forEach(row => {
+        const title = row.querySelector('.post-title').textContent.toLowerCase();
+        const tags = (row.dataset.tags || '').split(/[\s,]+/);
+        const show = title.includes(term) && (activeTag === 'all' || tags.includes(activeTag));
+        row.style.display = show ? '' : 'none';
         if (show) visible++;
       });
-
-      noResults.style.display = visible === 0 ? 'block' : 'none';
+      noResults.style.display = visible ? 'none' : 'block';
     }
 
     searchBox.addEventListener('input', filter);
-
-    tagBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tagBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeTag = btn.dataset.tag;
-        filter();
-      });
-    });
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeTag = chip.dataset.tag;
+      filter();
+    }));
   </script>
 </body>
 
